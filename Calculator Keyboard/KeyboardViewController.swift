@@ -31,11 +31,6 @@ class KeyboardViewController: UIInputViewController
 		
 	}
 
-	@IBAction func next(sender: AnyObject) 
-	{
-		advanceToNextInputMode()
-	}
-
     override func textWillChange(textInput: UITextInput) {
         // The app is about to change the document's contents. Perform any preparation here.
     }
