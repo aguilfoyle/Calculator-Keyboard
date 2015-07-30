@@ -534,6 +534,7 @@
 				BFE988F71B66EC7600F33AE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFE988F81B66EC7600F33AE2 /* Build configuration list for PBXNativeTarget "Calc KeyboardTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +543,7 @@
 				BFE988FA1B66EC7600F33AE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFE989081B66EDA800F33AE2 /* Build configuration list for PBXNativeTarget "Calculator Keyboard" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +552,7 @@
 				BFE9890A1B66EDA800F33AE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

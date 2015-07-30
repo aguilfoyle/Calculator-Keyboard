@@ -86,9 +86,7 @@ class KeyboardViewController: UIInputViewController
 	//UILabel(s)
 	@IBOutlet var resultsLabel: UILabel!
 	//UIScrollView(s)
-	@IBOutlet var sinCosTanScrollView: UIScrollView!
-	@IBOutlet var decimalPlusMinusScrollView: UIScrollView!
-	@IBOutlet var sqrRootPiScrollView: UIScrollView!
+	@IBOutlet var mainScrollView: UIScrollView!
 	//UISwipeGestureRecongizer(s)
 	var leftSwipe = UISwipeGestureRecognizer()
 	var rightSwipe = UISwipeGestureRecognizer()
@@ -118,14 +116,12 @@ class KeyboardViewController: UIInputViewController
 	{
 		super.viewDidLoad()
 		
-		
-		
 		let nib = UINib( nibName: "KeyboardView", bundle: nil )
 		let objects = nib.instantiateWithOwner( self, options: nil )
 		
 		view = objects[0] as! UIView;
 		
-		
+		//Adds the target to the UISwipeGesture
 		self.rightSwipe.addTarget( self, action: Selector("handleSwipe:"))
 		self.leftSwipe.addTarget( self, action: Selector("handleSwipe:"))
 		self.rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
@@ -164,16 +160,14 @@ class KeyboardViewController: UIInputViewController
 	{
 		if gesture.direction == UISwipeGestureRecognizerDirection.Left
 		{
-			self.sinCosTanScrollView.setContentOffset( CGPointMake( self.sinCosTanScrollView.bounds.width, 0 ), animated: true )
-			self.decimalPlusMinusScrollView.setContentOffset( CGPointMake( self.decimalPlusMinusScrollView.bounds.width, 0 ), animated: true )
-			self.sqrRootPiScrollView.setContentOffset( CGPointMake( self.sqrRootPiScrollView.bounds.width, 0 ), animated: true )
+			self.mainScrollView.setContentOffset( CGPointMake( self.mainScrollView.bounds.width, 0 ), animated: true )
+			
 			
 		}
 		else if gesture.direction == UISwipeGestureRecognizerDirection.Right
 		{
-			self.sinCosTanScrollView.setContentOffset( CGPointMake( 0, 0 ), animated: true )
-			self.decimalPlusMinusScrollView.setContentOffset( CGPointMake( 0, 0 ), animated: true )
-			self.sqrRootPiScrollView.setContentOffset( CGPointMake( 0, 0 ), animated: true )
+			self.mainScrollView.setContentOffset( CGPointMake( 0, 0 ), animated: true )
+			
 		}
 	}
 	
@@ -392,14 +386,6 @@ class KeyboardViewController: UIInputViewController
 		self.userInput = ""
 		self.accumulator = 0
 		self.updateDisplay()
-		
-//		
-//		
-//		(self.textDocumentProxy as UITextDocumentProxy as UIKeyInput)
-//		
-//		NSArray *tokens = [self.textDocumentProxy documentContextBeforeInput componentsSeparatedByString:@" "];
-//		for (int i = 0; i < [[tokens lastObject] length];i++) {
-//			[self.textDocumentProxy deleteBackward];
 	}
 	
 	
