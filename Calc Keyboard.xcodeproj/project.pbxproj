@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFD2DB271B6AF52500145D9A /* iGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB241B6AF52500145D9A /* iGlobe.png */; };
+		BFD2DB281B6AF52500145D9A /* iGlobe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */; };
+		BFD2DB291B6AF52500145D9A /* iGlobe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */; };
 		BFE988DC1B66EC7600F33AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */; };
 		BFE988DE1B66EC7600F33AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DD1B66EC7600F33AE2 /* ViewController.swift */; };
 		BFE988E11B66EC7600F33AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE988DF1B66EC7600F33AE2 /* Main.storyboard */; };
@@ -50,6 +53,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BFD2DB241B6AF52500145D9A /* iGlobe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iGlobe.png; sourceTree = "<group>"; };
+		BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iGlobe@2x.png"; sourceTree = "<group>"; };
+		BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iGlobe@3x.png"; sourceTree = "<group>"; };
 		BFE988D61B66EC7600F33AE2 /* Calc Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calc Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE988DA1B66EC7600F33AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFD2DB2A1B6AFA2100145D9A /* Images.xcassets */ = {
+			isa = PBXGroup;
+			children = (
+				BFD2DB241B6AF52500145D9A /* iGlobe.png */,
+				BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */,
+				BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */,
+			);
+			name = Images.xcassets;
+			sourceTree = "<group>";
+		};
 		BFE988CD1B66EC7600F33AE2 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +168,7 @@
 		BFE989001B66EDA800F33AE2 /* Calculator Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				BFD2DB2A1B6AFA2100145D9A /* Images.xcassets */,
 				BFE989031B66EDA800F33AE2 /* KeyboardViewController.swift */,
 				BFE9890E1B66EF2600F33AE2 /* KeyboardView.xib */,
 				BFE989011B66EDA800F33AE2 /* Supporting Files */,
@@ -287,6 +304,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD2DB291B6AF52500145D9A /* iGlobe@3x.png in Resources */,
+				BFD2DB281B6AF52500145D9A /* iGlobe@2x.png in Resources */,
+				BFD2DB271B6AF52500145D9A /* iGlobe.png in Resources */,
 				BFE9890F1B66EF2600F33AE2 /* KeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
