@@ -10,6 +10,15 @@ import UIKit
 
 
 
+class Label: UILabel 
+{
+	override func drawTextInRect(rect: CGRect) 
+	{
+		super.drawTextInRect(UIEdgeInsetsInsetRect(rect, UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)))
+	}
+}
+
+
 /**************************************************************
  * Addition
 **************************************************************/
@@ -45,9 +54,18 @@ func multiply(a: Double, b: Double) -> Double
 **************************************************************/
 func divide( a: Double, b: Double ) -> Double 
 {
-	var result = a / b
-	
-	return result
+	if b == 0 || b == 0.0
+	{
+		var result = 0.1233321
+		
+		return result
+	}
+	else
+	{
+		var result = a / b
+		
+		return result
+	}
 }
 
 /**************************************************************
@@ -63,7 +81,7 @@ func reciprocal( a: Double, b: Double ) -> Double
 typealias holdsValues = ( Double, Double ) -> Double
 let theOperators: [String: holdsValues] = [ "+" : addition, "-" : subtract, "*" : multiply, "/" : divide, "/?" : reciprocal ]
 
-class KeyboardViewController: UIInputViewController 
+class KeyboardViewController: UIInputViewController
 {
 	// *** VARIABLE(S) ***
 	//Boolean(s)
@@ -84,7 +102,7 @@ class KeyboardViewController: UIInputViewController
 	@IBOutlet var insertButton: UIButton!
 	@IBOutlet var textInputButton: UIButton!
 	//UILabel(s)
-	@IBOutlet var resultsLabel: UILabel!
+	@IBOutlet var resultsLabel: Label!
 	//UIScrollView(s)
 	@IBOutlet var mainScrollView: UIScrollView!
 	//UISwipeGestureRecongizer(s)
@@ -139,6 +157,8 @@ class KeyboardViewController: UIInputViewController
 		self.inputTextOnView.layer.masksToBounds = true
 		self.textInputButton.layer.masksToBounds = true
 		self.inputTextView.layer.masksToBounds = true
+		
+		
 	}
 
 	
@@ -161,8 +181,6 @@ class KeyboardViewController: UIInputViewController
 		if gesture.direction == UISwipeGestureRecognizerDirection.Left
 		{
 			self.mainScrollView.setContentOffset( CGPointMake( self.mainScrollView.bounds.width, 0 ), animated: true )
-			
-			
 		}
 		else if gesture.direction == UISwipeGestureRecognizerDirection.Right
 		{
@@ -186,6 +204,7 @@ class KeyboardViewController: UIInputViewController
 			{
 				var holdingValues = theOperators[operatorStack.removeLast()]
 				self.accumulator = holdingValues!(numberStack.removeLast(), accumulator)
+				
 				self.doEquals()
 			}
 		}
@@ -232,16 +251,23 @@ class KeyboardViewController: UIInputViewController
 	 **************************************************************/
 	func updateDisplay() 
 	{
-		// If the value is an integer, don't show a decimal point
-		var iAcc = Int(self.accumulator)
-		
-		if accumulator - Double(iAcc) == 0 
+		if self.accumulator == 0.1233321
 		{
-			self.resultsLabel.text = "\(iAcc)"
-		} 
-		else 
+			self.resultsLabel.text = "error"
+		}
+		else
 		{
-			self.resultsLabel.text = "\(self.accumulator)"
+			// If the value is an integer, don't show a decimal point
+			var iAcc = Int(self.accumulator)
+			
+			if accumulator - Double(iAcc) == 0 
+			{
+				self.resultsLabel.text = "\(iAcc)"
+			} 
+			else 
+			{
+				self.resultsLabel.text = "\(self.accumulator)"
+			}
 		}
 	}
 	
@@ -372,12 +398,7 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	@IBAction func clearAll( sender: AnyObject )
-	{
-		for(var i = self.thePrintedEquation.count; i > 0; i-- )
-		{
-			( textDocumentProxy as! UIKeyInput ).deleteBackward()
-		}
-		
+	{		
 		self.thePrintedEquation.removeAll()
 		self.numberStack.removeAll()
 		self.operatorStack.removeAll()
