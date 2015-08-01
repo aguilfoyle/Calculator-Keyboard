@@ -136,12 +136,12 @@
 			children = (
 				BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */,
 				BFE988DD1B66EC7600F33AE2 /* ViewController.swift */,
-				BFE988DF1B66EC7600F33AE2 /* Main.storyboard */,
 				BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */,
 				BF2B01771B6C38250021A39A /* InstructionsViewController.swift */,
 				BF2B01791B6C38330021A39A /* AboutViewController.swift */,
-				BFE988E21B66EC7600F33AE2 /* Images.xcassets */,
+				BFE988DF1B66EC7600F33AE2 /* Main.storyboard */,
 				BFE988E41B66EC7600F33AE2 /* LaunchScreen.xib */,
+				BFE988E21B66EC7600F33AE2 /* Images.xcassets */,
 				BFE988D91B66EC7600F33AE2 /* Supporting Files */,
 			);
 			path = "Calc Keyboard";
