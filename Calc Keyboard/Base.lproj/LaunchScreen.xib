@@ -54,6 +54,7 @@
                 <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" constant="7" id="nVM-JP-hCb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="D4l-K2-eHG"/>
