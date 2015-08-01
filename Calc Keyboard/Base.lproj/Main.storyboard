@@ -211,12 +211,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="FhA-5V-Qfe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <navigationBar alpha="0.84999999999999987" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKd-tu-T95">
+                            <navigationBar alpha="0.69999999999999973" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKd-tu-T95">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0tk-5r-tiM"/>
                                 </constraints>
-                                <color key="barTintColor" red="0.066666666666666666" green="0.14117647058823529" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem id="nCY-i0-brw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="PmV-Gn-tu8">
@@ -875,6 +876,6 @@ The Calculator Keyboard</string>
         <image name="background2" width="547" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l0f-pJ-FF6"/>
+        <segue reference="mzj-QE-IZd"/>
     </inferredMetricsTieBreakers>
 </document>
