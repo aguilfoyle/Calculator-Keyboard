@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Think Thrice Tech. All rights reserved.
 //
 
+import Darwin
 import UIKit
-
+import Swift
 
 
 class Label: UILabel 
@@ -53,7 +54,7 @@ func multiply(a: Double, b: Double) -> Double
 * Addition
 **************************************************************/
 func divide( a: Double, b: Double ) -> Double 
-{
+{	
 	if b == 0 || b == 0.0
 	{
 		var result = 0.1233321
@@ -73,21 +74,29 @@ func divide( a: Double, b: Double ) -> Double
 **************************************************************/
 func reciprocal( a: Double, b: Double ) -> Double
 {
-	var result = 1 / b 
+		var result = 1 / b 
+		
+		return result
 	
-	return result
 }
 
 typealias holdsValues = ( Double, Double ) -> Double
 let theOperators: [String: holdsValues] = [ "+" : addition, "-" : subtract, "*" : multiply, "/" : divide, "/?" : reciprocal ]
 
+
+
+/***********************************************************************
+ * CLASS: KeyboardViewController | CALLS: UIInputViewController
+ * PURPOSE: 
+ ***********************************************************************/
 class KeyboardViewController: UIInputViewController
 {
 	// *** VARIABLE(S) ***
 	//Boolean(s)
 	var textInput = true
+	var operatorsClicked = true
 	//Integer(s)
-	
+	var counter = 0
 	//Double(s)
 	var pi: Double = 3.14159265358979
 	var accumulator: Double = 0.0
@@ -101,6 +110,8 @@ class KeyboardViewController: UIInputViewController
 	//UIButton(s)
 	@IBOutlet var insertButton: UIButton!
 	@IBOutlet var textInputButton: UIButton!
+	//UIImageView
+	@IBOutlet var nextKeyboardImageView: UIImageView!
 	//UILabel(s)
 	@IBOutlet var resultsLabel: Label!
 	//UIScrollView(s)
@@ -116,6 +127,8 @@ class KeyboardViewController: UIInputViewController
 
 	
 	
+	
+	
 	/**************************************************************
 	 * Addition
 	 **************************************************************/
@@ -126,7 +139,7 @@ class KeyboardViewController: UIInputViewController
         // Add custom view sizing constraints here
     }
 	
-
+	
 	/**************************************************************
 	 * Addition
 	 **************************************************************/
@@ -134,31 +147,34 @@ class KeyboardViewController: UIInputViewController
 	{
 		super.viewDidLoad()
 		
-		let nib = UINib( nibName: "KeyboardView", bundle: nil )
+		let nib		= UINib( nibName: "KeyboardView", bundle: nil )
 		let objects = nib.instantiateWithOwner( self, options: nil )
 		
 		view = objects[0] as! UIView;
+		
+		//Add image to keyboard
+		self.nextKeyboardImageView.image	   = UIImage(named: "global.png" )
+		self.nextKeyboardImageView.contentMode = UIViewContentMode.ScaleAspectFit
+		self.view.addSubview( self.nextKeyboardImageView )
 		
 		//Adds the target to the UISwipeGesture
 		self.rightSwipe.addTarget( self, action: Selector("handleSwipe:"))
 		self.leftSwipe.addTarget( self, action: Selector("handleSwipe:"))
 		self.rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
-		self.leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
+		self.leftSwipe.direction  = UISwipeGestureRecognizerDirection.Left
 		
+		//Adding gestureRecognizer to mainView
 		self.mainView.addGestureRecognizer( self.rightSwipe )
 		self.mainView.addGestureRecognizer( self.leftSwipe )
 		
-		
-		self.inputTextView.layer.cornerRadius = 3
-		self.inputTextView.layer.borderColor = UIColor.blackColor().CGColor
-		
-		self.inputTextView.layer.borderWidth = 1
-		self.inputTextOffView.layer.masksToBounds = true
-		self.inputTextOnView.layer.masksToBounds = true
-		self.textInputButton.layer.masksToBounds = true
-		self.inputTextView.layer.masksToBounds = true
-		
-		
+		//Rounding the input text buttons
+		self.inputTextView.layer.borderColor		= UIColor.blackColor().CGColor
+		self.inputTextView.layer.cornerRadius		= 3
+		self.inputTextView.layer.borderWidth		= 1
+		self.inputTextView.layer.masksToBounds		= true
+		self.inputTextOffView.layer.masksToBounds	= true
+		self.inputTextOnView.layer.masksToBounds	= true
+		self.textInputButton.layer.masksToBounds	= true
 	}
 
 	
@@ -170,6 +186,13 @@ class KeyboardViewController: UIInputViewController
 	{
         // The app is about to change the document's contents. Perform any preparation here.
     }
+	
+	
+	
+	func printErrorOut()
+	{
+		self.resultsLabel.text = "error"
+	}
 	
 	
 	
@@ -220,7 +243,7 @@ class KeyboardViewController: UIInputViewController
 	/**************************************************************
 	 * Addition
   	 **************************************************************/
-	func doEquals() 
+	func doEquals()
 	{
 		if self.userInput == "" 
 		{
@@ -407,6 +430,7 @@ class KeyboardViewController: UIInputViewController
 		self.userInput = ""
 		self.accumulator = 0
 		self.updateDisplay()
+		self.counter = 0
 	}
 	
 	
@@ -444,11 +468,19 @@ class KeyboardViewController: UIInputViewController
 	 **************************************************************/
 	@IBAction func numberPressed( sender: AnyObject ) 
 	{
-		self.handleInput("\(sender.tag)")
-		
-		if textInput
-		{			
-			self.printTextToScreen("\(sender.tag)")
+		if self.counter == 11
+		{
+			
+		}
+		else
+		{
+			self.counter++
+			self.handleInput("\(sender.tag)")
+			
+			if self.textInput
+			{			
+				self.printTextToScreen("\(sender.tag)")
+			}
 		}
 	}
 	
@@ -459,6 +491,8 @@ class KeyboardViewController: UIInputViewController
 	 **************************************************************/
 	@IBAction func operatorPressed( sender: AnyObject ) 
 	{
+		self.counter = 0
+		
 		switch sender.tag
 		{
 		case 0:

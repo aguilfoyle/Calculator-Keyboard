@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BFD2DB271B6AF52500145D9A /* iGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB241B6AF52500145D9A /* iGlobe.png */; };
-		BFD2DB281B6AF52500145D9A /* iGlobe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */; };
-		BFD2DB291B6AF52500145D9A /* iGlobe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */; };
+		BF2B01741B6C1A650021A39A /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2B01731B6C1A650021A39A /* global.png */; };
+		BF2B01761B6C2B210021A39A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2B01751B6C2B210021A39A /* iAd.framework */; };
+		BF2B01781B6C38250021A39A /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B01771B6C38250021A39A /* InstructionsViewController.swift */; };
+		BF2B017A1B6C38330021A39A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B01791B6C38330021A39A /* AboutViewController.swift */; };
+		BF2B017C1B6C45900021A39A /* NewsUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */; };
 		BFE988DC1B66EC7600F33AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */; };
 		BFE988DE1B66EC7600F33AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DD1B66EC7600F33AE2 /* ViewController.swift */; };
 		BFE988E11B66EC7600F33AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE988DF1B66EC7600F33AE2 /* Main.storyboard */; };
@@ -53,9 +55,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BFD2DB241B6AF52500145D9A /* iGlobe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iGlobe.png; sourceTree = "<group>"; };
-		BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iGlobe@2x.png"; sourceTree = "<group>"; };
-		BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iGlobe@3x.png"; sourceTree = "<group>"; };
+		BF2B01731B6C1A650021A39A /* global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = global.png; sourceTree = "<group>"; };
+		BF2B01751B6C2B210021A39A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		BF2B01771B6C38250021A39A /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		BF2B01791B6C38330021A39A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsUpdatesViewController.swift; sourceTree = "<group>"; };
 		BFE988D61B66EC7600F33AE2 /* Calc Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calc Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE988DA1B66EC7600F33AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2B01761B6C2B210021A39A /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,9 +105,7 @@
 		BFD2DB2A1B6AFA2100145D9A /* Images.xcassets */ = {
 			isa = PBXGroup;
 			children = (
-				BFD2DB241B6AF52500145D9A /* iGlobe.png */,
-				BFD2DB251B6AF52500145D9A /* iGlobe@2x.png */,
-				BFD2DB261B6AF52500145D9A /* iGlobe@3x.png */,
+				BF2B01731B6C1A650021A39A /* global.png */,
 			);
 			name = Images.xcassets;
 			sourceTree = "<group>";
@@ -110,6 +113,7 @@
 		BFE988CD1B66EC7600F33AE2 = {
 			isa = PBXGroup;
 			children = (
+				BF2B01751B6C2B210021A39A /* iAd.framework */,
 				BFE988D81B66EC7600F33AE2 /* Calc Keyboard */,
 				BFE988EE1B66EC7600F33AE2 /* Calc KeyboardTests */,
 				BFE989001B66EDA800F33AE2 /* Calculator Keyboard */,
@@ -133,6 +137,9 @@
 				BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */,
 				BFE988DD1B66EC7600F33AE2 /* ViewController.swift */,
 				BFE988DF1B66EC7600F33AE2 /* Main.storyboard */,
+				BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */,
+				BF2B01771B6C38250021A39A /* InstructionsViewController.swift */,
+				BF2B01791B6C38330021A39A /* AboutViewController.swift */,
 				BFE988E21B66EC7600F33AE2 /* Images.xcassets */,
 				BFE988E41B66EC7600F33AE2 /* LaunchScreen.xib */,
 				BFE988D91B66EC7600F33AE2 /* Supporting Files */,
@@ -304,10 +311,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD2DB291B6AF52500145D9A /* iGlobe@3x.png in Resources */,
-				BFD2DB281B6AF52500145D9A /* iGlobe@2x.png in Resources */,
-				BFD2DB271B6AF52500145D9A /* iGlobe.png in Resources */,
 				BFE9890F1B66EF2600F33AE2 /* KeyboardView.xib in Resources */,
+				BF2B01741B6C1A650021A39A /* global.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2B01781B6C38250021A39A /* InstructionsViewController.swift in Sources */,
 				BFE988DE1B66EC7600F33AE2 /* ViewController.swift in Sources */,
+				BF2B017C1B6C45900021A39A /* NewsUpdatesViewController.swift in Sources */,
+				BF2B017A1B6C38330021A39A /* AboutViewController.swift in Sources */,
 				BFE988DC1B66EC7600F33AE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -449,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,6 +472,7 @@
 				INFOPLIST_FILE = "Calc Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,6 +483,7 @@
 				INFOPLIST_FILE = "Calc Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -522,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -532,6 +543,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
