@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ABh-Zg-4Kg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="KNK-WN-7vY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="KNK-WN-7vY">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noC-Oy-jkD">
@@ -125,15 +126,13 @@
                                 <exclude reference="Q72-py-uHb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="CLB-kF-te1"/>
-                                <exclude reference="OvT-aP-qgd"/>
-                                <exclude reference="ZXl-30-luM"/>
-                                <exclude reference="aaG-qR-taq"/>
+                                <exclude reference="Qs7-ZT-uwp"/>
+                                <exclude reference="Xme-KC-5XB"/>
                                 <exclude reference="421-7k-hay"/>
                                 <exclude reference="Zgs-DE-YvM"/>
-                                <exclude reference="0qX-q6-Xjt"/>
-                                <exclude reference="eAH-GP-WS6"/>
-                                <exclude reference="jC6-iA-U9H"/>
+                                <exclude reference="l9O-Ox-6Ky"/>
+                                <exclude reference="Zp9-lP-JDu"/>
+                                <exclude reference="xvU-T4-T31"/>
                                 <exclude reference="0Oi-4H-Ku3"/>
                                 <exclude reference="B2b-Be-wxd"/>
                                 <exclude reference="LXB-xQ-bo7"/>
@@ -142,11 +141,13 @@
                                 <exclude reference="f58-yx-AFt"/>
                                 <exclude reference="rqD-FP-Rq8"/>
                                 <exclude reference="wcZ-DP-UBp"/>
-                                <exclude reference="Zp9-lP-JDu"/>
-                                <exclude reference="xvU-T4-T31"/>
-                                <exclude reference="Qs7-ZT-uwp"/>
-                                <exclude reference="Xme-KC-5XB"/>
-                                <exclude reference="l9O-Ox-6Ky"/>
+                                <exclude reference="0qX-q6-Xjt"/>
+                                <exclude reference="eAH-GP-WS6"/>
+                                <exclude reference="jC6-iA-U9H"/>
+                                <exclude reference="CLB-kF-te1"/>
+                                <exclude reference="OvT-aP-qgd"/>
+                                <exclude reference="ZXl-30-luM"/>
+                                <exclude reference="aaG-qR-taq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -159,15 +160,13 @@
                                 <include reference="Q72-py-uHb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="CLB-kF-te1"/>
-                                <include reference="OvT-aP-qgd"/>
-                                <include reference="ZXl-30-luM"/>
-                                <include reference="aaG-qR-taq"/>
+                                <include reference="Qs7-ZT-uwp"/>
+                                <include reference="Xme-KC-5XB"/>
                                 <include reference="421-7k-hay"/>
                                 <include reference="Zgs-DE-YvM"/>
-                                <include reference="0qX-q6-Xjt"/>
-                                <include reference="eAH-GP-WS6"/>
-                                <include reference="jC6-iA-U9H"/>
+                                <include reference="l9O-Ox-6Ky"/>
+                                <include reference="Zp9-lP-JDu"/>
+                                <include reference="xvU-T4-T31"/>
                                 <include reference="0Oi-4H-Ku3"/>
                                 <include reference="B2b-Be-wxd"/>
                                 <include reference="LXB-xQ-bo7"/>
@@ -176,11 +175,13 @@
                                 <include reference="f58-yx-AFt"/>
                                 <include reference="rqD-FP-Rq8"/>
                                 <include reference="wcZ-DP-UBp"/>
-                                <include reference="Zp9-lP-JDu"/>
-                                <include reference="xvU-T4-T31"/>
-                                <include reference="Qs7-ZT-uwp"/>
-                                <include reference="Xme-KC-5XB"/>
-                                <include reference="l9O-Ox-6Ky"/>
+                                <include reference="0qX-q6-Xjt"/>
+                                <include reference="eAH-GP-WS6"/>
+                                <include reference="jC6-iA-U9H"/>
+                                <include reference="CLB-kF-te1"/>
+                                <include reference="OvT-aP-qgd"/>
+                                <include reference="ZXl-30-luM"/>
+                                <include reference="aaG-qR-taq"/>
                             </mask>
                         </variation>
                     </view>
@@ -206,9 +207,10 @@
                         <viewControllerLayoutGuide type="bottom" id="K7V-cl-vsI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Odl-Nq-8M0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About" translatesAutoresizingMaskIntoConstraints="NO" id="FhA-5V-Qfe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroun3" translatesAutoresizingMaskIntoConstraints="NO" id="FhA-5V-Qfe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <navigationBar alpha="0.69999999999999973" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKd-tu-T95">
@@ -247,23 +249,24 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
  For any inquires feel free to email me at: 
  ThinkThriceTech@gmail.com</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="60" width="368" height="732"/>
-                                </variation>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="64a-g3-tXZ" firstAttribute="top" secondItem="FhA-5V-Qfe" secondAttribute="top" id="1wp-FM-Cmk"/>
                             <constraint firstAttribute="trailing" secondItem="FhA-5V-Qfe" secondAttribute="trailing" id="5h4-UP-ahH"/>
                             <constraint firstItem="PKd-tu-T95" firstAttribute="trailing" secondItem="FhA-5V-Qfe" secondAttribute="trailing" id="AGS-0G-5MH"/>
+                            <constraint firstItem="K7V-cl-vsI" firstAttribute="top" secondItem="64a-g3-tXZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Bcx-oI-eSp"/>
                             <constraint firstItem="PKd-tu-T95" firstAttribute="leading" secondItem="FhA-5V-Qfe" secondAttribute="leading" id="DHQ-wS-3SI"/>
                             <constraint firstItem="FhA-5V-Qfe" firstAttribute="bottom" secondItem="K7V-cl-vsI" secondAttribute="top" id="Pw8-Sh-QIy"/>
+                            <constraint firstItem="64a-g3-tXZ" firstAttribute="leading" secondItem="Odl-Nq-8M0" secondAttribute="leadingMargin" id="arF-vU-9e5"/>
                             <constraint firstItem="FhA-5V-Qfe" firstAttribute="top" secondItem="Odl-Nq-8M0" secondAttribute="top" id="iPv-bT-OYS">
                                 <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                             </constraint>
+                            <constraint firstItem="64a-g3-tXZ" firstAttribute="centerX" secondItem="FhA-5V-Qfe" secondAttribute="centerX" id="ufC-8Q-8cT"/>
                             <constraint firstItem="FhA-5V-Qfe" firstAttribute="leading" secondItem="Odl-Nq-8M0" secondAttribute="leading" id="v5w-Zc-bt6"/>
                             <constraint firstItem="PKd-tu-T95" firstAttribute="top" secondItem="FhA-5V-Qfe" secondAttribute="top" id="ycg-Fg-8F7">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-60"/>
@@ -276,13 +279,17 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <exclude reference="64a-g3-tXZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="AGS-0G-5MH"/>
+                                <exclude reference="DHQ-wS-3SI"/>
+                                <exclude reference="ycg-Fg-8F7"/>
                                 <exclude reference="5h4-UP-ahH"/>
                                 <exclude reference="Pw8-Sh-QIy"/>
                                 <exclude reference="iPv-bT-OYS"/>
                                 <exclude reference="v5w-Zc-bt6"/>
-                                <exclude reference="AGS-0G-5MH"/>
-                                <exclude reference="DHQ-wS-3SI"/>
-                                <exclude reference="ycg-Fg-8F7"/>
+                                <exclude reference="1wp-FM-Cmk"/>
+                                <exclude reference="arF-vU-9e5"/>
+                                <exclude reference="ufC-8Q-8cT"/>
+                                <exclude reference="Bcx-oI-eSp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -292,13 +299,17 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <include reference="64a-g3-tXZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="AGS-0G-5MH"/>
+                                <include reference="DHQ-wS-3SI"/>
+                                <include reference="ycg-Fg-8F7"/>
                                 <include reference="5h4-UP-ahH"/>
                                 <include reference="Pw8-Sh-QIy"/>
                                 <include reference="iPv-bT-OYS"/>
                                 <include reference="v5w-Zc-bt6"/>
-                                <include reference="AGS-0G-5MH"/>
-                                <include reference="DHQ-wS-3SI"/>
-                                <include reference="ycg-Fg-8F7"/>
+                                <include reference="1wp-FM-Cmk"/>
+                                <include reference="arF-vU-9e5"/>
+                                <include reference="ufC-8Q-8cT"/>
+                                <include reference="Bcx-oI-eSp"/>
                             </mask>
                         </variation>
                     </view>
@@ -318,6 +329,7 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                         <viewControllerLayoutGuide type="bottom" id="pgU-cF-txJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ADy-JP-mfq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroun3" translatesAutoresizingMaskIntoConstraints="NO" id="EWw-WD-KT5">
@@ -352,16 +364,16 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jdD-ki-3AJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <string key="text">Version 2.0 is here! 
+                                <mutableString key="text">Version 2.0 is here! 
 
 Thanks for all of the support and positive feedback! 
 
-New features are here! I have added new operations and even more if you swipe left on the keyboard. Go ahead, try it! Also, as requested I had an 'Enter' key!
+New operations are here! I have added new operations like 1/x, x² and π. Also, as requested I had an 'Enter' key! The new button in the top/left corner allows you to enter text as you type it out. If you wish to disable it simply turn it off and use the
 
 If you have any comments or other feedback, please feel free to contact us at 
 ThinkThriceTech@gmail.com 
 or 
-www.facebook.com/CalculatorKeyboardAppThink</string>
+www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -395,6 +407,7 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                 <exclude reference="jdD-ki-3AJ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="vYg-mn-ft6"/>
                                 <exclude reference="4dC-9E-aik"/>
                                 <exclude reference="X1L-58-PsW"/>
                                 <exclude reference="tZX-Di-yWc"/>
@@ -405,7 +418,6 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                 <exclude reference="4uU-XO-WXq"/>
                                 <exclude reference="7Up-N7-PqG"/>
                                 <exclude reference="T9E-En-j46"/>
-                                <exclude reference="vYg-mn-ft6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -415,6 +427,7 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                 <include reference="jdD-ki-3AJ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="vYg-mn-ft6"/>
                                 <include reference="4dC-9E-aik"/>
                                 <include reference="X1L-58-PsW"/>
                                 <include reference="tZX-Di-yWc"/>
@@ -425,7 +438,6 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                 <include reference="4uU-XO-WXq"/>
                                 <include reference="7Up-N7-PqG"/>
                                 <include reference="T9E-En-j46"/>
-                                <include reference="vYg-mn-ft6"/>
                             </mask>
                         </variation>
                     </view>
@@ -445,9 +457,10 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                         <viewControllerLayoutGuide type="bottom" id="ekL-Uu-wty"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MGy-Id-1uR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="THg-Wh-WKe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="THg-Wh-WKe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <navigationBar alpha="0.59999999999999964" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-Tv-Myu">
@@ -629,18 +642,14 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <exclude reference="tQe-cB-Ddz"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="Ugw-ta-D3Z"/>
-                                        <exclude reference="XpQ-0L-7lR"/>
-                                        <exclude reference="q2r-di-Ivr"/>
-                                        <exclude reference="frk-in-6q3"/>
-                                        <exclude reference="oFt-sM-hEw"/>
                                         <exclude reference="CAC-uD-CP9"/>
                                         <exclude reference="gXZ-WI-2B8"/>
                                         <exclude reference="se8-Dh-sMy"/>
-                                        <exclude reference="FlS-ic-VAu"/>
-                                        <exclude reference="Rsk-gH-qnx"/>
-                                        <exclude reference="Iy1-f3-cFj"/>
-                                        <exclude reference="PLj-LG-onG"/>
+                                        <exclude reference="frk-in-6q3"/>
+                                        <exclude reference="oFt-sM-hEw"/>
+                                        <exclude reference="3k4-nQ-b5z"/>
+                                        <exclude reference="eMT-KI-gyA"/>
+                                        <exclude reference="sHs-vD-bUu"/>
                                         <exclude reference="1Ln-sp-np0"/>
                                         <exclude reference="3Wl-6j-5TD"/>
                                         <exclude reference="E4f-sm-MOU"/>
@@ -653,15 +662,13 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <exclude reference="mEw-o2-3qP"/>
                                         <exclude reference="mt0-V6-HFZ"/>
                                         <exclude reference="rfv-6S-8tq"/>
-                                        <exclude reference="3k4-nQ-b5z"/>
-                                        <exclude reference="eMT-KI-gyA"/>
-                                        <exclude reference="sHs-vD-bUu"/>
                                         <exclude reference="eLP-Dw-0Uj"/>
                                         <exclude reference="yNr-cT-CSa"/>
-                                        <exclude reference="Mez-11-69a"/>
-                                        <exclude reference="MoY-TA-5uu"/>
-                                        <exclude reference="W5D-Tc-3bX"/>
-                                        <exclude reference="ud9-sg-4JI"/>
+                                        <exclude reference="Iy1-f3-cFj"/>
+                                        <exclude reference="PLj-LG-onG"/>
+                                        <exclude reference="Ugw-ta-D3Z"/>
+                                        <exclude reference="XpQ-0L-7lR"/>
+                                        <exclude reference="q2r-di-Ivr"/>
                                         <exclude reference="1MU-se-8ZA"/>
                                         <exclude reference="FT5-lp-N9F"/>
                                         <exclude reference="KUq-Vv-r2c"/>
@@ -670,6 +677,12 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <exclude reference="dz6-Xa-xnL"/>
                                         <exclude reference="eEE-an-zqW"/>
                                         <exclude reference="r67-mC-leR"/>
+                                        <exclude reference="Mez-11-69a"/>
+                                        <exclude reference="MoY-TA-5uu"/>
+                                        <exclude reference="W5D-Tc-3bX"/>
+                                        <exclude reference="ud9-sg-4JI"/>
+                                        <exclude reference="FlS-ic-VAu"/>
+                                        <exclude reference="Rsk-gH-qnx"/>
                                         <exclude reference="1H6-Gk-3fh"/>
                                         <exclude reference="5Od-lf-t7E"/>
                                         <exclude reference="9cD-Kd-rGr"/>
@@ -694,18 +707,14 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <include reference="tQe-cB-Ddz"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="Ugw-ta-D3Z"/>
-                                        <include reference="XpQ-0L-7lR"/>
-                                        <include reference="q2r-di-Ivr"/>
-                                        <include reference="frk-in-6q3"/>
-                                        <include reference="oFt-sM-hEw"/>
                                         <include reference="CAC-uD-CP9"/>
                                         <include reference="gXZ-WI-2B8"/>
                                         <include reference="se8-Dh-sMy"/>
-                                        <include reference="FlS-ic-VAu"/>
-                                        <include reference="Rsk-gH-qnx"/>
-                                        <include reference="Iy1-f3-cFj"/>
-                                        <include reference="PLj-LG-onG"/>
+                                        <include reference="frk-in-6q3"/>
+                                        <include reference="oFt-sM-hEw"/>
+                                        <include reference="3k4-nQ-b5z"/>
+                                        <include reference="eMT-KI-gyA"/>
+                                        <include reference="sHs-vD-bUu"/>
                                         <include reference="1Ln-sp-np0"/>
                                         <include reference="3Wl-6j-5TD"/>
                                         <include reference="E4f-sm-MOU"/>
@@ -718,15 +727,13 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <include reference="mEw-o2-3qP"/>
                                         <include reference="mt0-V6-HFZ"/>
                                         <include reference="rfv-6S-8tq"/>
-                                        <include reference="3k4-nQ-b5z"/>
-                                        <include reference="eMT-KI-gyA"/>
-                                        <include reference="sHs-vD-bUu"/>
                                         <include reference="eLP-Dw-0Uj"/>
                                         <include reference="yNr-cT-CSa"/>
-                                        <include reference="Mez-11-69a"/>
-                                        <include reference="MoY-TA-5uu"/>
-                                        <include reference="W5D-Tc-3bX"/>
-                                        <include reference="ud9-sg-4JI"/>
+                                        <include reference="Iy1-f3-cFj"/>
+                                        <include reference="PLj-LG-onG"/>
+                                        <include reference="Ugw-ta-D3Z"/>
+                                        <include reference="XpQ-0L-7lR"/>
+                                        <include reference="q2r-di-Ivr"/>
                                         <include reference="1MU-se-8ZA"/>
                                         <include reference="FT5-lp-N9F"/>
                                         <include reference="KUq-Vv-r2c"/>
@@ -735,6 +742,12 @@ www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <include reference="dz6-Xa-xnL"/>
                                         <include reference="eEE-an-zqW"/>
                                         <include reference="r67-mC-leR"/>
+                                        <include reference="Mez-11-69a"/>
+                                        <include reference="MoY-TA-5uu"/>
+                                        <include reference="W5D-Tc-3bX"/>
+                                        <include reference="ud9-sg-4JI"/>
+                                        <include reference="FlS-ic-VAu"/>
+                                        <include reference="Rsk-gH-qnx"/>
                                         <include reference="1H6-Gk-3fh"/>
                                         <include reference="5Od-lf-t7E"/>
                                         <include reference="9cD-Kd-rGr"/>
@@ -823,14 +836,14 @@ The Calculator Keyboard</string>
                                 <exclude reference="B4D-Ll-gcz"/>
                                 <exclude reference="DIs-pK-raa"/>
                                 <exclude reference="PAe-ie-ovW"/>
-                                <exclude reference="ZCq-n5-jrR"/>
-                                <exclude reference="d5F-KB-njU"/>
-                                <exclude reference="sZh-fq-C4A"/>
                                 <exclude reference="S9f-NO-KWL"/>
                                 <exclude reference="g1w-i3-ALq"/>
                                 <exclude reference="j4R-aU-ZiW"/>
                                 <exclude reference="ryV-bw-Twr"/>
                                 <exclude reference="zye-kV-Qmd"/>
+                                <exclude reference="ZCq-n5-jrR"/>
+                                <exclude reference="d5F-KB-njU"/>
+                                <exclude reference="sZh-fq-C4A"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -848,14 +861,14 @@ The Calculator Keyboard</string>
                                 <include reference="B4D-Ll-gcz"/>
                                 <include reference="DIs-pK-raa"/>
                                 <include reference="PAe-ie-ovW"/>
-                                <include reference="ZCq-n5-jrR"/>
-                                <include reference="d5F-KB-njU"/>
-                                <include reference="sZh-fq-C4A"/>
                                 <include reference="S9f-NO-KWL"/>
                                 <include reference="g1w-i3-ALq"/>
                                 <include reference="j4R-aU-ZiW"/>
                                 <include reference="ryV-bw-Twr"/>
                                 <include reference="zye-kV-Qmd"/>
+                                <include reference="ZCq-n5-jrR"/>
+                                <include reference="d5F-KB-njU"/>
+                                <include reference="sZh-fq-C4A"/>
                             </mask>
                         </variation>
                     </view>
@@ -870,12 +883,11 @@ The Calculator Keyboard</string>
         </scene>
     </scenes>
     <resources>
-        <image name="About" width="547" height="1024"/>
         <image name="backgroun3" width="547" height="1024"/>
         <image name="background1" width="547" height="1024"/>
         <image name="background2" width="547" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mzj-QE-IZd"/>
+        <segue reference="n5i-Ud-59D"/>
     </inferredMetricsTieBreakers>
 </document>

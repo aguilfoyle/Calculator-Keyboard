@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF2B01741B6C1A650021A39A /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF2B01731B6C1A650021A39A /* global.png */; };
 		BF2B01761B6C2B210021A39A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2B01751B6C2B210021A39A /* iAd.framework */; };
 		BF2B01781B6C38250021A39A /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B01771B6C38250021A39A /* InstructionsViewController.swift */; };
 		BF2B017A1B6C38330021A39A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B01791B6C38330021A39A /* AboutViewController.swift */; };
 		BF2B017C1B6C45900021A39A /* NewsUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */; };
+		BF6E0B0F1B6E938C00BDEE02 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6E0B0E1B6E938C00BDEE02 /* global.png */; };
+		BF6E0B101B6E938C00BDEE02 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6E0B0E1B6E938C00BDEE02 /* global.png */; };
 		BFE988DC1B66EC7600F33AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */; };
 		BFE988DE1B66EC7600F33AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DD1B66EC7600F33AE2 /* ViewController.swift */; };
 		BFE988E11B66EC7600F33AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE988DF1B66EC7600F33AE2 /* Main.storyboard */; };
@@ -55,11 +56,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BF2B01731B6C1A650021A39A /* global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = global.png; sourceTree = "<group>"; };
 		BF2B01751B6C2B210021A39A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		BF2B01771B6C38250021A39A /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		BF2B01791B6C38330021A39A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsUpdatesViewController.swift; sourceTree = "<group>"; };
+		BF6E0B0E1B6E938C00BDEE02 /* global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = global.png; sourceTree = "<group>"; };
 		BFE988D61B66EC7600F33AE2 /* Calc Keyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calc Keyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE988DA1B66EC7600F33AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +106,7 @@
 		BFD2DB2A1B6AFA2100145D9A /* Images.xcassets */ = {
 			isa = PBXGroup;
 			children = (
-				BF2B01731B6C1A650021A39A /* global.png */,
+				BF6E0B0E1B6E938C00BDEE02 /* global.png */,
 			);
 			name = Images.xcassets;
 			sourceTree = "<group>";
@@ -296,6 +297,7 @@
 			files = (
 				BFE988E11B66EC7600F33AE2 /* Main.storyboard in Resources */,
 				BFE988E61B66EC7600F33AE2 /* LaunchScreen.xib in Resources */,
+				BF6E0B0F1B6E938C00BDEE02 /* global.png in Resources */,
 				BFE988E31B66EC7600F33AE2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,8 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6E0B101B6E938C00BDEE02 /* global.png in Resources */,
 				BFE9890F1B66EF2600F33AE2 /* KeyboardView.xib in Resources */,
-				BF2B01741B6C1A650021A39A /* global.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

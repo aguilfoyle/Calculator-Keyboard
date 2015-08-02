@@ -21,7 +21,7 @@ class Label: UILabel
 
 
 /**************************************************************
- * Addition
+* Addition
 **************************************************************/
 func addition( a: Double, b: Double ) -> Double 
 {
@@ -57,7 +57,7 @@ func divide( a: Double, b: Double ) -> Double
 {	
 	if b == 0 || b == 0.0
 	{
-		var result = 0.1233321
+		var result = 0.123332101
 		
 		return result
 	}
@@ -74,26 +74,45 @@ func divide( a: Double, b: Double ) -> Double
 **************************************************************/
 func reciprocal( a: Double, b: Double ) -> Double
 {
-		var result = 1 / b 
+	if a == 0 || a == 0.0
+	{
+		var result = 0.123332101
 		
 		return result
+	}
+	else
+	{
+		var result = 1 / a
+		
+		return result
+	}
+}
+
+/**************************************************************
+* Percentage
+**************************************************************/
+func percentage( a: Double, b: Double ) -> Double
+{
+	var result = a / 100 
 	
+	return result
 }
 
 typealias holdsValues = ( Double, Double ) -> Double
-let theOperators: [String: holdsValues] = [ "+" : addition, "-" : subtract, "*" : multiply, "/" : divide, "/?" : reciprocal ]
+let theOperators: [String: holdsValues] = [ "+" : addition, "-" : subtract, "*" : multiply, "/" : divide, "/?" : reciprocal, "%" : percentage ]
 
 
 
 /***********************************************************************
- * CLASS: KeyboardViewController | CALLS: UIInputViewController
- * PURPOSE: 
- ***********************************************************************/
+* CLASS: KeyboardViewController | CALLS: UIInputViewController
+* PURPOSE: 
+***********************************************************************/
 class KeyboardViewController: UIInputViewController
 {
 	// *** VARIABLE(S) ***
 	//Boolean(s)
 	var textInput = true
+	var oneOverXPressed = false
 	var operatorsClicked = true
 	//Integer(s)
 	var counter = 0
@@ -124,25 +143,25 @@ class KeyboardViewController: UIInputViewController
 	@IBOutlet var inputTextOffView: UIView!
 	@IBOutlet var inputTextView: UIView!
 	@IBOutlet var mainView: UIView!
-
 	
 	
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
-    override func updateViewConstraints() 
+	* Addition
+	**************************************************************/
+	override func updateViewConstraints() 
 	{
-        super.updateViewConstraints()
-    
-        // Add custom view sizing constraints here
-    }
+		super.updateViewConstraints()
+		
+
+		
+	}
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -157,35 +176,35 @@ class KeyboardViewController: UIInputViewController
 		self.nextKeyboardImageView.contentMode = UIViewContentMode.ScaleAspectFit
 		self.view.addSubview( self.nextKeyboardImageView )
 		
-		//Adds the target to the UISwipeGesture
-		self.rightSwipe.addTarget( self, action: Selector("handleSwipe:"))
-		self.leftSwipe.addTarget( self, action: Selector("handleSwipe:"))
-		self.rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
-		self.leftSwipe.direction  = UISwipeGestureRecognizerDirection.Left
-		
-		//Adding gestureRecognizer to mainView
-		self.mainView.addGestureRecognizer( self.rightSwipe )
-		self.mainView.addGestureRecognizer( self.leftSwipe )
+//		//Adds the target to the UISwipeGesture
+//		self.rightSwipe.addTarget( self, action: Selector("handleSwipe:"))
+//		self.leftSwipe.addTarget( self, action: Selector("handleSwipe:"))
+//		self.rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
+//		self.leftSwipe.direction  = UISwipeGestureRecognizerDirection.Left
+//		
+//		//Adding gestureRecognizer to mainView
+//		self.mainView.addGestureRecognizer( self.rightSwipe )
+//		self.mainView.addGestureRecognizer( self.leftSwipe )
 		
 		//Rounding the input text buttons
 		self.inputTextView.layer.borderColor		= UIColor.blackColor().CGColor
-		self.inputTextView.layer.cornerRadius		= 3
 		self.inputTextView.layer.borderWidth		= 1
+		self.inputTextView.layer.cornerRadius		= 3
 		self.inputTextView.layer.masksToBounds		= true
-		self.inputTextOffView.layer.masksToBounds	= true
-		self.inputTextOnView.layer.masksToBounds	= true
 		self.textInputButton.layer.masksToBounds	= true
+		self.inputTextOnView.layer.masksToBounds	= true
+		self.inputTextOffView.layer.masksToBounds	= true
 	}
-
+	
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
-    override func textWillChange( textInput: UITextInput ) 
+	* Addition
+	**************************************************************/
+	override func textWillChange( textInput: UITextInput ) 
 	{
-        // The app is about to change the document's contents. Perform any preparation here.
-    }
+		// The app is about to change the document's contents. Perform any preparation here.
+	}
 	
 	
 	
@@ -197,8 +216,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	func handleSwipe( gesture: UISwipeGestureRecognizer )
 	{
 		if gesture.direction == UISwipeGestureRecognizerDirection.Left
@@ -215,15 +234,15 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	func doMath( newOperator: String )  
 	{
 		if self.userInput != "" && !self.numberStack.isEmpty 
 		{
 			var operatorsInStack = self.operatorStack.last
 			
-			if !((operatorsInStack == "+" || operatorsInStack == "-") && (newOperator == "*" || newOperator == "/")) 
+			if !((operatorsInStack == "+" || operatorsInStack == "-") && (newOperator == "*" || newOperator == "/" || newOperator == "/?" || newOperator == "%")) 
 			{
 				var holdingValues = theOperators[operatorStack.removeLast()]
 				self.accumulator = holdingValues!(numberStack.removeLast(), accumulator)
@@ -241,8 +260,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-  	 **************************************************************/
+	* Addition
+	**************************************************************/
 	func doEquals()
 	{
 		if self.userInput == "" 
@@ -254,7 +273,7 @@ class KeyboardViewController: UIInputViewController
 		{
 			var holdingValues = theOperators[self.operatorStack.removeLast()]
 			
-			self.accumulator = holdingValues!( self.numberStack.removeLast(), self.accumulator )
+			self.accumulator = holdingValues!( self.numberStack.removeLast(), self.accumulator )			
 			
 			if !operatorStack.isEmpty 
 			{
@@ -270,11 +289,11 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	func updateDisplay() 
 	{
-		if self.accumulator == 0.1233321
+		if self.accumulator == 0.123332101
 		{
 			self.resultsLabel.text = "error"
 		}
@@ -297,8 +316,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-     * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	func handleInput( input: String ) 
 	{
 		if input == "-" 
@@ -326,8 +345,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-     **************************************************************/
+	* Addition
+	**************************************************************/
 	// Looks for a single character in a string.
 	func hasIndex( stringToSearch text: String, characterToFind char: Character) -> Bool 
 	{
@@ -360,8 +379,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func turnOnOffTestInput( sender: AnyObject ) 
 	{
 		if self.textInput
@@ -381,8 +400,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func nextKeyboard( sender: AnyObject ) 
 	{
 		advanceToNextInputMode()
@@ -391,8 +410,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func backSpacePressed( button: UIButton ) 
 	{
 		if self.textInput
@@ -409,8 +428,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func decimalPressed( sender: AnyObject ) 
 	{
 		if self.hasIndex( stringToSearch: self.userInput, characterToFind: "." ) == false
@@ -426,6 +445,7 @@ class KeyboardViewController: UIInputViewController
 		self.numberStack.removeAll()
 		self.operatorStack.removeAll()
 		
+		self.oneOverXPressed = false
 		self.printToScreen = ""
 		self.userInput = ""
 		self.accumulator = 0
@@ -436,8 +456,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func changeSignPressed( sender: AnyObject ) 
 	{
 		if self.userInput.isEmpty 
@@ -451,8 +471,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func insertPressed(sender: AnyObject) 
 	{
 		
@@ -463,9 +483,9 @@ class KeyboardViewController: UIInputViewController
 	}
 	
 	
-		/**************************************************************
-	 * Addition
-	 **************************************************************/
+	/**************************************************************
+	* Addition
+	**************************************************************/
 	@IBAction func numberPressed( sender: AnyObject ) 
 	{
 		if self.counter == 11
@@ -487,8 +507,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func operatorPressed( sender: AnyObject ) 
 	{
 		self.counter = 0
@@ -514,7 +534,7 @@ class KeyboardViewController: UIInputViewController
 		case 4:
 			self.doEquals()
 			self.printTextToScreen( "=\(self.resultsLabel.text!)" )
-						
+			
 		default:
 			return
 		}
@@ -525,24 +545,34 @@ class KeyboardViewController: UIInputViewController
 	{
 		switch sender.tag
 		{
-		case 0: //PI
+		case 0: //X!
+			self.doMath( "*" )
+			self.handleInput( "\(self.accumulator)" )
+			self.doEquals()
+			
+		case 1: //1/x
+			self.doMath( "/?" )
+			self.handleInput("2")
+			self.doEquals()
+			
+			
+		case 2: //π
 			self.printTextToScreen( "\(self.pi)" )
 			self.handleInput( "\(self.pi)" )
 			
-		case 1: //1/x
-			self.resultsLabel.text = "1/x"
+			//		case 3: //10x
+			//			self.resultsLabel.text = "sqr(x)"
+			//			
+			//		case 4: //x^2
+			//			self.resultsLabel.text = "x^2"
+			//			
+			//		case 5: //x^3
+			//			self.resultsLabel.text = "x^3"
 			
-		case 2: //x!
-			self.resultsLabel.text = "x!"
-			
-		case 3: //10x
-			self.resultsLabel.text = "10x"
-			
-		case 4: //x^Y
-			self.resultsLabel.text = "x^Y"
-			
-		case 5: //sqr
-			self.resultsLabel.text = "xSqr(Y)"
+		case 6:
+			self.doMath( "%" )
+			self.handleInput("100")
+			self.doEquals()
 			
 		default:
 			return
@@ -552,8 +582,8 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	* Addition
+	**************************************************************/
 	@IBAction func returnPressed(button: UIButton) 
 	{
 		( textDocumentProxy as! UIKeyInput ).insertText( "\n" )
