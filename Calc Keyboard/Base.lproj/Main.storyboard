@@ -367,7 +367,7 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jdD-ki-3AJ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <mutableString key="text">Version 2.0 is here! 
+                                        <string key="text">Version 2.0 is here! 
 
 Thanks for all of the support and positive feedback! 
 
@@ -376,7 +376,7 @@ New operations are here! I have added new operations like 1/x, x² and π. Also,
 If you have any comments or other feedback, please feel free to contact us at 
 ThinkThriceTech@gmail.com 
 or 
-www.facebook.com/CalculatorKeyboardAppThink</mutableString>
+www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -424,6 +424,14 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                         <exclude reference="Eyq-Jk-g8p"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="DKh-KS-RXB"/>
+                                        <exclude reference="HP4-AI-ZXa"/>
+                                        <exclude reference="8kO-wU-JwP"/>
+                                        <exclude reference="VYk-3i-Ry3"/>
+                                        <exclude reference="j7E-Pp-RUY"/>
+                                        <exclude reference="k3e-tc-IhB"/>
+                                        <exclude reference="usx-oi-KpD"/>
+                                        <exclude reference="rXJ-i6-qfu"/>
                                         <exclude reference="8eD-wz-DlK"/>
                                         <exclude reference="Io3-Pc-PA3"/>
                                         <exclude reference="WMg-J0-v8v"/>
@@ -434,14 +442,6 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                         <exclude reference="sIQ-bY-1xf"/>
                                         <exclude reference="ywo-e3-lXE"/>
                                         <exclude reference="z2P-3h-4sR"/>
-                                        <exclude reference="8kO-wU-JwP"/>
-                                        <exclude reference="VYk-3i-Ry3"/>
-                                        <exclude reference="j7E-Pp-RUY"/>
-                                        <exclude reference="k3e-tc-IhB"/>
-                                        <exclude reference="usx-oi-KpD"/>
-                                        <exclude reference="DKh-KS-RXB"/>
-                                        <exclude reference="HP4-AI-ZXa"/>
-                                        <exclude reference="rXJ-i6-qfu"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -452,6 +452,14 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                         <include reference="Eyq-Jk-g8p"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="DKh-KS-RXB"/>
+                                        <include reference="HP4-AI-ZXa"/>
+                                        <include reference="8kO-wU-JwP"/>
+                                        <include reference="VYk-3i-Ry3"/>
+                                        <include reference="j7E-Pp-RUY"/>
+                                        <include reference="k3e-tc-IhB"/>
+                                        <include reference="usx-oi-KpD"/>
+                                        <include reference="rXJ-i6-qfu"/>
                                         <include reference="8eD-wz-DlK"/>
                                         <include reference="Io3-Pc-PA3"/>
                                         <include reference="WMg-J0-v8v"/>
@@ -462,14 +470,6 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                         <include reference="sIQ-bY-1xf"/>
                                         <include reference="ywo-e3-lXE"/>
                                         <include reference="z2P-3h-4sR"/>
-                                        <include reference="8kO-wU-JwP"/>
-                                        <include reference="VYk-3i-Ry3"/>
-                                        <include reference="j7E-Pp-RUY"/>
-                                        <include reference="k3e-tc-IhB"/>
-                                        <include reference="usx-oi-KpD"/>
-                                        <include reference="DKh-KS-RXB"/>
-                                        <include reference="HP4-AI-ZXa"/>
-                                        <include reference="rXJ-i6-qfu"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -507,6 +507,8 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <exclude reference="mPw-kX-Thb"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="WW1-LB-Pap"/>
+                                <exclude reference="nu4-G0-ljB"/>
                                 <exclude reference="4dC-9E-aik"/>
                                 <exclude reference="X1L-58-PsW"/>
                                 <exclude reference="tZX-Di-yWc"/>
@@ -518,8 +520,6 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <exclude reference="bYd-BC-QOA"/>
                                 <exclude reference="qsH-Tr-Es7"/>
                                 <exclude reference="uAb-w6-4FL"/>
-                                <exclude reference="WW1-LB-Pap"/>
-                                <exclude reference="nu4-G0-ljB"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -530,6 +530,8 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <include reference="mPw-kX-Thb"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="WW1-LB-Pap"/>
+                                <include reference="nu4-G0-ljB"/>
                                 <include reference="4dC-9E-aik"/>
                                 <include reference="X1L-58-PsW"/>
                                 <include reference="tZX-Di-yWc"/>
@@ -541,8 +543,6 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <include reference="bYd-BC-QOA"/>
                                 <include reference="qsH-Tr-Es7"/>
                                 <include reference="uAb-w6-4FL"/>
-                                <include reference="WW1-LB-Pap"/>
-                                <include reference="nu4-G0-ljB"/>
                             </mask>
                         </variation>
                     </view>

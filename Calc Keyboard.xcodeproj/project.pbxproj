@@ -13,6 +13,7 @@
 		BF2B017C1B6C45900021A39A /* NewsUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2B017B1B6C45900021A39A /* NewsUpdatesViewController.swift */; };
 		BF6E0B0F1B6E938C00BDEE02 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6E0B0E1B6E938C00BDEE02 /* global.png */; };
 		BF6E0B101B6E938C00BDEE02 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6E0B0E1B6E938C00BDEE02 /* global.png */; };
+		BF6E0B5E1B6F04C900BDEE02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE988E21B66EC7600F33AE2 /* Images.xcassets */; };
 		BFE988DC1B66EC7600F33AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DB1B66EC7600F33AE2 /* AppDelegate.swift */; };
 		BFE988DE1B66EC7600F33AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE988DD1B66EC7600F33AE2 /* ViewController.swift */; };
 		BFE988E11B66EC7600F33AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE988DF1B66EC7600F33AE2 /* Main.storyboard */; };
@@ -313,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6E0B5E1B6F04C900BDEE02 /* Images.xcassets in Resources */,
 				BF6E0B101B6E938C00BDEE02 /* global.png in Resources */,
 				BFE9890F1B66EF2600F33AE2 /* KeyboardView.xib in Resources */,
 			);
