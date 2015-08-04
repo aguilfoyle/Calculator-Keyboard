@@ -261,6 +261,7 @@
 				TargetAttributes = {
 					BFE988D51B66EC7600F33AE2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 6R575CJ2YG;
 					};
 					BFE988EA1B66EC7600F33AE2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -268,6 +269,7 @@
 					};
 					BFE988FE1B66EDA800F33AE2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 6R575CJ2YG;
 					};
 				};
 			};
@@ -473,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Calc Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Calc Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,6 +532,7 @@
 		BFE989091B66EDA800F33AE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -543,6 +548,7 @@
 		BFE9890A1B66EDA800F33AE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Calculator Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
