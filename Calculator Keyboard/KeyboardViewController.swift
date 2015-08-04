@@ -34,7 +34,7 @@ func addition( a: Double, b: Double ) -> Double
 
 
 /***********************************************************************
- * Subtract: 
+ * Subtract: Allows for subtraction of two double numbers
  ***********************************************************************/
 func subtract(a: Double, b: Double) -> Double 
 {
@@ -46,7 +46,7 @@ func subtract(a: Double, b: Double) -> Double
 
 
 /***********************************************************************
- * Multiply: 
+ * Multiply: Allows for multiplication of two double numbers
  ***********************************************************************/
 func multiply(a: Double, b: Double) -> Double 
 {
@@ -58,7 +58,7 @@ func multiply(a: Double, b: Double) -> Double
 
 
 /***********************************************************************
- * Divide:
+ * Divide: Allows for division of two double numbers
  ***********************************************************************/
 func divide( a: Double, b: Double ) -> Double 
 {	
@@ -79,7 +79,7 @@ func divide( a: Double, b: Double ) -> Double
 
 
 /***********************************************************************
- * Reciprocal:
+ * Reciprocal: Takes the reciprocal of given number
  ***********************************************************************/
 func reciprocal( a: Double, b: Double ) -> Double
 {
@@ -100,7 +100,7 @@ func reciprocal( a: Double, b: Double ) -> Double
 
 
 /***********************************************************************
- * Percentage
+ * Percentage: Gets the percentage of a number 
  ***********************************************************************/
 func percentage( a: Double, b: Double ) -> Double
 {
@@ -113,7 +113,8 @@ func percentage( a: Double, b: Double ) -> Double
 
 /***********************************************************************
  * CLASS: KeyboardViewController | CALLS: UILabel
- * PURPOSE: 
+ * PURPOSE: Allows the resultsLabel to have an indention of 3 points; 
+ *	  It looks cleaner to me. 
  ***********************************************************************/
 class Label: UILabel 
 {
@@ -126,16 +127,20 @@ class Label: UILabel
 
 
 /***********************************************************************
-* CLASS: KeyboardViewController | CALLS: UIInputViewController
-* PURPOSE: 
-***********************************************************************/
+ * CLASS: KeyboardViewController | CALLS: UIInputViewController
+ * PURPOSE: This class handles the majority of logic for the keyboard
+ *	  extension to work properly. 
+ ***********************************************************************/
 class KeyboardViewController: UIInputViewController
 {
 	// *** VARIABLE(S) ***
 	//Boolean(s)
+	var showOnce  = true
 	var textInput = true
+	var reciprocalHit = false
 	//Integer(s)
-	var counter = 0
+	var counter		 = 0
+	var timerCounter = 0
 	//Double(s)
 	var pi		    : Double = 3.14159265358979
 	var accumulator : Double = 0.0
@@ -146,6 +151,9 @@ class KeyboardViewController: UIInputViewController
 	//String(s)
 	var userInput	  = ""
 	var printToScreen = ""
+	var previousInput = ""
+	//NSTimer
+	var showNewButtonOption: NSTimer!
 	//UIButton(s)
 	@IBOutlet var deleteButton	  : UIButton!
 	@IBOutlet var insertButton	  : UIButton!
@@ -212,7 +220,7 @@ class KeyboardViewController: UIInputViewController
 	/*******************************************************************
 	 * METHOD: textWillChange | PARAMETERS: UITextInput | RETURN: void 
 	 * PURPOSE: Tells the input delegate when text is about to change 
-	 *	  in the document. 
+	 *		in the document. 
 	 *******************************************************************/
 	override func textWillChange( textInput: UITextInput ) 
 	{
@@ -221,10 +229,14 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/****************************************************************
+	/***********************************************************************
 	 * METHOD: doMath | PARAMETERS: String | RETURN: void 
-	 * PURPOSE: 
-	 **************************************************************/
+	 * PURPOSE: This method when called will check if an operation has already
+     *		been pressed: If so, it will pass the value before the operation 
+	 *		pressed and the values after it was pressed and pass those into
+	 *		the correct function. Else, it will just store the values before
+	 *		the operation was clicked and the operation that was clicked
+	 ***********************************************************************/
 	func doMath( newOperator: String )  
 	{
 		if self.userInput != "" && !self.numberStack.isEmpty 
@@ -240,17 +252,22 @@ class KeyboardViewController: UIInputViewController
 			}
 		}
 		
+		//Append number and operation to stacks
 		self.operatorStack.append( newOperator )
 		self.numberStack.append( accumulator )
+		//Update everything and delete userInput string
 		self.userInput = ""
 		self.updateDisplay()
 	}
 	
 	
 	
-	/****************************************************************
-	* METHOD: backSpacePressed | PARAMETERS: UIButton | RETURN: void 
-	**************************************************************/
+	/***********************************************************************
+	 * METHOD: doEquals | PARAMETERS: none | RETURN: void 
+	 * PURPOSE: This method when called will perform the equals operation, 
+	 *		but there are a number of checks to make sure that the input is 
+	 *		validate first. 
+	 ***********************************************************************/
 	func doEquals()
 	{
 		self.counter = 0
@@ -272,16 +289,20 @@ class KeyboardViewController: UIInputViewController
 			}
 		}
 		
+		//Update everything and delete userInput string
 		self.updateDisplay()
-		
 		self.userInput = ""
 	}
 	
 	
 	
-	/****************************************************************
-	* METHOD: backSpacePressed | PARAMETERS: UIButton | RETURN: void 
-	**************************************************************/
+	/***********************************************************************
+	 * METHOD: handleInput | PARAMETERS: String | RETURN: void 
+	 * PURPOSE: This method when called will take the input (if there is input)
+	 *		from the previous input key stroke and merge them together into
+	 *		a single string to present it to the user so it looks like a 
+	 *		continious string of numbers. 
+	 ***********************************************************************/
 	func handleInput( input: String ) 
 	{
 		if input == "-" 
@@ -308,9 +329,12 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/****************************************************************
-	* METHOD: backSpacePressed | PARAMETERS: UIButton | RETURN: void 
-	**************************************************************/
+	/***********************************************************************
+	 * METHOD: hasIndex | PARAMETERS: String & Character | RETURN: Bool 
+	 * PURPOSE: This method when called will look for a single character in
+	 *		the potentially long string of numbers. If char found then it 
+	 *		returns true, else false
+	 ***********************************************************************/
 	// Looks for a single character in a string.
 	func hasIndex( stringToSearch text: String, characterToFind char: Character) -> Bool 
 	{
@@ -326,14 +350,68 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/****************************************************************
-	* METHOD: backSpacePressed | PARAMETERS: UIButton | RETURN: void 
-	**************************************************************/
-	func updateDisplay() 
+	/*************************************************************************
+	 * METHOD: handleTimer | PARAMETERS: none | RETURN: void 
+	 * PURPOSE: This method is called whenever the timer is called; It will 
+	 *		call this method every 0.5 seconds. It'll be a total of 1.5 seconds
+	 *		before the timer becames invalidated;
+	 *************************************************************************/
+	func handleTimer()
+	{
+		if self.timerCounter == 2
+		{
+			self.updateDisplay()
+			self.showNewButtonOption.invalidate()
+		}
+		else
+		{
+			self.timerCounter++
+		}
+	}
+	
+	
+	
+	/***************************************************************************
+	 * METHOD: printTextToScreen | PARAMETERS: String | RETURN: void 
+	 * PURPOSE: This method will be called when a number is pressed or something
+	 *		like an operator is pressed and needs to be printed to the screen
+	 ***************************************************************************/
+	func printTextToScreen( newElement: String )
+	{
+		if self.textInput
+		{
+			self.thePrintedEquation.append( newElement )
+			
+			for items in self.thePrintedEquation
+			{
+				self.printToScreen = items
+			}
+			
+			( textDocumentProxy as! UIKeyInput ).insertText( self.printToScreen )
+		}
+	}
+	
+	
+	
+	/*************************************************************************
+	 * METHOD: updateDisplay | PARAMETERS: none | RETURN: void 
+	 * PURPOSE: When called this method will first check to make sure that the
+	 *		accumulator variable doesn't equal 0.123332101 be/c that means a
+	 *		division by zero was tried; Else, it will print to the resultsLabel
+	 *		the updated userInput or total from operation;
+	 *************************************************************************/
+	func updateDisplay()
 	{
 		if self.accumulator == 0.123332101
 		{
-			self.resultsLabel.text = "error"
+			if self.reciprocalHit
+			{
+				self.resultsLabel.text = "error"
+			}
+			else
+			{
+				self.resultsLabel.text = "error"
+			}
 		}
 		else
 		{
@@ -353,21 +431,25 @@ class KeyboardViewController: UIInputViewController
 
 	
 
-	/****************************************************************
+	/*************************************************************************
 	 * METHOD: backSpacePressed | PARAMETERS: UIButton | RETURN: void 
-	 * PURPOSE: 
-	 ****************************************************************/
-	@IBAction func backSpacePressed( button: UIButton ) 
+	 * PURPOSE: This method will be called when the back space button is 
+	 *		pressed on keyboard. It will delete a single character from where
+	 *		the text was being inputed; 
+	 *************************************************************************/
+	@IBAction func backSpacePressed( button: UIButton )
 	{
 		( textDocumentProxy as! UIKeyInput ).deleteBackward()
 	}
 	
 	
 	
-	/****************************************************************
+	/*************************************************************************
 	 * METHOD: decimalPressed | PARAMETERS: AnyObject | RETURN: void 
-	 * PURPOSE: 
-	 ****************************************************************/
+	 * PURPOSE: This method will be called when the decimal button is pressed 
+	 *		on keyboard. It will call hasIndex to search for the '.' char and 
+	 *		determine to remove or keep it;
+	 *************************************************************************/
 	@IBAction func decimalPressed( sender: AnyObject ) 
 	{
 		if self.hasIndex( stringToSearch: self.userInput, characterToFind: "." ) == false
@@ -377,6 +459,13 @@ class KeyboardViewController: UIInputViewController
 	}
 	
 	
+	
+	/*************************************************************************
+	 * METHOD: clearAll | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when the "AC" button is pressed on
+	 *		the keyboard; This will clear all important variables inorder to
+	 *		reset for next calculation;
+     *************************************************************************/
 	@IBAction func clearAll( sender: AnyObject )
 	{		
 		self.thePrintedEquation.removeAll()
@@ -388,13 +477,17 @@ class KeyboardViewController: UIInputViewController
 		self.accumulator = 0
 		self.updateDisplay()
 		self.counter = 0
+		self.reciprocalHit = false
 	}
 	
 	
 	
-	/**************************************************************
-	* Addition
-	**************************************************************/
+	/*************************************************************************
+	 * METHOD: changeSignPressed | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when the "+/-" button is pressed on
+	 *		the keyboard; This will call 'hasIndex' method and search for the
+	 *		'-' char inorder to remove or insert it in the string;
+	 *************************************************************************/
 	@IBAction func changeSignPressed( sender: AnyObject ) 
 	{
 		if self.userInput.isEmpty 
@@ -407,10 +500,13 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	* Addition
-	**************************************************************/
-	@IBAction func insertPressed(sender: AnyObject) 
+	/*************************************************************************
+	 * METHOD: insertPressed | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when the button above the results
+	 *		label is pressed; This will insert the text that is currently on 
+	 *		the resultsLabel to the screen;
+	 *************************************************************************/
+	@IBAction func insertPressed( sender: AnyObject ) 
 	{
 		if !self.textInput
 		{
@@ -420,9 +516,11 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	* Addition
-	**************************************************************/
+	/***************************************************************************
+	 * METHOD: nextKeyboard | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when the '🌐' button is pressed; 
+	 *		It will change keyboards from the calculator app to other keyboards;
+	 ***************************************************************************/
 	@IBAction func nextKeyboard( sender: AnyObject ) 
 	{
 		advanceToNextInputMode()
@@ -430,9 +528,12 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	* Addition
-	**************************************************************/
+	/***************************************************************************
+	 * METHOD: numberPressed | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when a number is pressed; It takes the
+	 *		tag assigned to each number button which corresponds to the actual 
+	 *		number on the button; Limits the user to 12 digits [000,000,000,000]
+	 ***************************************************************************/
 	@IBAction func numberPressed( sender: AnyObject ) 
 	{
 		if self.counter == 11
@@ -453,9 +554,12 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	/***************************************************************************
+	 * METHOD: operatorPressed | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when a operation is pressed; It takes
+	 *		the tag number assigned to each operation to determine which operation
+	 *		was pressed; 
+	 ***************************************************************************/
 	@IBAction func operatorPressed( sender: AnyObject ) 
 	{
 		self.counter = 0
@@ -489,9 +593,12 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	 * Addition
-	 **************************************************************/
+	/***************************************************************************
+	 * METHOD: otherOperatorsPressed | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when a other (newer) operations are
+	 *		pressed; It takes the tag number assigned to each operation to 
+	 *		determine which operation was pressed; 
+	 ***************************************************************************/
 	@IBAction func otherOperatorsPressed( sender: AnyObject )
 	{
 		switch sender.tag
@@ -504,15 +611,29 @@ class KeyboardViewController: UIInputViewController
 			self.printTextToScreen( "=\(self.resultsLabel.text!)" )
 			
 		case 1: //1/x
-			for( var i = 0; i < self.counter; i++ )
+			//If: user taps nothing thus it's 1/0 which is an error
+			if self.userInput == ""
 			{
-				( textDocumentProxy as! UIKeyInput ).deleteBackward()
+				//If insertText option is on then insert the operation and result
+				if self.textInput
+				{
+					( textDocumentProxy as! UIKeyInput ).insertText( "1/0=error" )
+				}
+				
+				self.resultsLabel.text = "error"
 			}
-			self.printTextToScreen( "1/\(self.userInput)" )
-			self.doMath( "/?" )
-			self.handleInput("2")
-			self.doEquals()
-			self.printTextToScreen( "=\(self.resultsLabel.text!)" )
+			else //Else: User taps 1/? with an actual number
+			{
+				for( var i = 0; i < self.counter; i++ )
+				{
+					( textDocumentProxy as! UIKeyInput ).deleteBackward()
+				}
+				self.printTextToScreen( "1/\(self.userInput)" )
+				self.doMath( "/?" )
+				self.handleInput("2")
+				self.doEquals()
+				self.printTextToScreen( "=\(self.resultsLabel.text!)" )
+			}
 			
 		case 2: //π
 			self.printTextToScreen( "\(self.pi)" )
@@ -528,7 +649,7 @@ class KeyboardViewController: UIInputViewController
 			//		case 5: //x^3
 			//			self.resultsLabel.text = "x^3"
 			
-		case 6:
+		case 6: //%
 			self.printTextToScreen( "%100" )
 			self.doMath( "%" )
 			self.handleInput("100")
@@ -542,58 +663,43 @@ class KeyboardViewController: UIInputViewController
 	
 	
 	
-	/**************************************************************
-	 * Addition
-	 **************************************************************/
-	func printErrorOut()
-	{
-		self.resultsLabel.text = "error"
-	}
-	
-	
-	
-	/**************************************************************
-	 * Addition
-	 **************************************************************/
-	func printTextToScreen( newElement: String )
-	{
-		if self.textInput
-		{
-			self.thePrintedEquation.append( newElement )
-			
-			for items in self.thePrintedEquation
-			{
-				self.printToScreen = items
-			}
-			
-			( textDocumentProxy as! UIKeyInput ).insertText( self.printToScreen )
-		}
-	}
-	
-	
-	
-	/**************************************************************
-	 * Addition
-	 **************************************************************/
-	@IBAction func returnPressed(button: UIButton) 
+	/***************************************************************************
+	 * METHOD: returnPressed | PARAMETERS: UIButton | RETURN: void 
+	 * PURPOSE: This method will be called when a other (newer) operations are
+	 *		pressed; It takes the tag number assigned to each operation to 
+	 *		determine which operation was pressed; 
+	 ***************************************************************************/
+	@IBAction func returnPressed( button: UIButton ) 
 	{
 		( textDocumentProxy as! UIKeyInput ).insertText( "\n" )
 	}	
 	
 	
 	
-	/**************************************************************
-	* Addition
-	**************************************************************/
+	/***************************************************************************
+	 * METHOD: turnOnOffTestInput | PARAMETERS: AnyObject | RETURN: void 
+	 * PURPOSE: This method will be called when the turn On/Off button in the
+	 *		top - left of the keyboard is pressed; This controls whether text is
+	 *		inserted to the screen at the same time it's inserted onto the 
+     *		resultsLabel within the keyboard;
+	 ***************************************************************************/
 	@IBAction func turnOnOffTestInput( sender: AnyObject ) 
 	{
+		//If: The textInput is true then that means it can be turned off
 		if self.textInput
 		{
 			self.textInput = false
 			self.inputTextOffView.backgroundColor = UIColor.redColor()
 			self.inputTextOnView.backgroundColor = UIColor.whiteColor()
+			
+			if self.showOnce
+			{
+				self.showNewButtonOption = NSTimer.scheduledTimerWithTimeInterval( 0.6, target: self, selector: Selector("handleTimer"), userInfo: nil, repeats: true )
+				self.resultsLabel.text = "Tap To Insert"
+			}
+			self.showOnce = false
 		}
-		else
+		else //Else: The textInput is off and can be turned on
 		{
 			self.textInput = true
 			self.inputTextOnView.backgroundColor = UIColor( red: 92/255, green: 221/255, blue: 103/255, alpha: 1.0 )

@@ -244,7 +244,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64a-g3-tXZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <string key="text">Hiya! 
-I started Think Thrice Tech in early 2015. I'm a computer science student that's trying to find is niche. I don't do iOS programming for any reason except because I absolutely LOVE IT! 
+I started Think Thrice Tech in early 2015. I'm a computer science student that's trying to find is niché. I don't do iOS programming for any reason except because I absolutely LOVE IT! 
 If I can build an app for you or help you in an way, I'd love the opportunity! 
  For any inquires feel free to email me at: 
  ThinkThriceTech@gmail.com</string>
@@ -367,16 +367,16 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jdD-ki-3AJ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <string key="text">Version 2.0 is here! 
+                                        <mutableString key="text">Version 2.0 is here! 
 
 Thanks for all of the support and positive feedback! 
 
-New operations are here! I have added new operations like 1/x, x² and π. Also, as requested I had an 'Enter' key! The new button in the top/left corner allows you to enter text as you type it out. If you wish to disable it simply turn it off and use the
+New operations are here! We have added operations like 1/x, x² and π. Also, as requested there is now an 'enter a new line' key! The new switch button in the top/left corner allows you to turn on/off the text entering to the screen. If you wish to have it off and you want to enter text after you type it out simply tap where the results are shown.
 
 If you have any comments or other feedback, please feel free to contact us at 
 ThinkThriceTech@gmail.com 
 or 
-www.facebook.com/CalculatorKeyboardAppThink</string>
+www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1002,6 +1002,6 @@ The Calculator Keyboard</string>
         <image name="whatsNew3" width="466" height="255"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5i-Ud-59D"/>
+        <segue reference="mzj-QE-IZd"/>
     </inferredMetricsTieBreakers>
 </document>
