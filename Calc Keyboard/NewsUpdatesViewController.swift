@@ -6,23 +6,43 @@
 * Copyright (c) 2015 Think Thrice Tech. All rights reserved.
 ***************************************************************/
 
+// *** IMPORT(S) ***
 import UIKit
 
+
+
+/*****************************************************************************
+ * CLASS: NewsUpdatesViewController | ADDITIONAL: UIViewController
+ * PURPOSE: This class handles the news & update section of the app; It includes
+ *	  a Scroll View which detects swipe gestures
+ *****************************************************************************/
 class NewsUpdatesViewController: UIViewController 
 {
-	@IBOutlet var holdingNewsScrollView: UIScrollView!
+	// *** VARIABLE(S) ***
+	//Integer(s)
+	var pageNumber = 0
+	//CGFloat(s)
+	var scrollSize: CGFloat = 0
+	//UIImageView(s)
 	@IBOutlet var imageSize: UIImageView!
-	@IBOutlet var textViewSize: UITextView!
+	//UIPageControl(s)
 	@IBOutlet var pageController: UIPageControl!
-
+	//UIScrollView(s)
+	@IBOutlet var holdingNewsScrollView: UIScrollView!
+	//UISwipeGestureRecognizer(s)
 	var swipeLeft = UISwipeGestureRecognizer()
 	var swipeRight = UISwipeGestureRecognizer()
-	
+	//UITapGestureRecognizer(s)
 	var tapped = UITapGestureRecognizer()
+	//UITextView(s)
+	@IBOutlet var textViewSize: UITextView!
 	
-	var pageNumber = 0
-	var scrollSize: CGFloat = 0
+		
 	
+	/********************************************************************
+	 * FUNC: viewDidLoad | PARAMETERS: none | RETURN: void
+	 * PURPOSE: Called after the controller's view is loaded into memory.
+	 ********************************************************************/
     override func viewDidLoad() 
 	{
         super.viewDidLoad()
@@ -40,6 +60,13 @@ class NewsUpdatesViewController: UIViewController
 		self.holdingNewsScrollView.addGestureRecognizer( self.tapped )
 	}
 
+	
+	
+	/********************************************************************
+	 * FUNC: didReceiveMemoryWarning | PARAMETERS: none | RETURN: void
+	 * PURPOSE: Sent to the view controller when the app receives a memory 
+	 *	warning.
+	 ********************************************************************/
     override func didReceiveMemoryWarning() 
 	{
         super.didReceiveMemoryWarning()
@@ -47,6 +74,12 @@ class NewsUpdatesViewController: UIViewController
 	}
 	
 	
+	
+	/********************************************************************
+	 * FUNC: swiped | PARAMETERS: UISwipeGestureRecognizer | RETURN: void
+	 * PURPOSE: This function is called when a SwipeGesture that is either
+	 *	  a left or right swipe; There are only 4 pages to swipe through;
+	 ********************************************************************/
 	func swiped( gesture: UISwipeGestureRecognizer )
 	{
 		if gesture.direction == UISwipeGestureRecognizerDirection.Left

@@ -29,7 +29,7 @@ class ViewController: UIViewController, ADBannerViewDelegate
 	
 	
 	/********************************************************************
-	 * METHOD: viewDidLoad | PARAMETERS: none | RETURN: void
+	 * FUNC: viewDidLoad | PARAMETERS: none | RETURN: void
 	 * PURPOSE: Called after the controller's view is loaded into memory.
 	 ********************************************************************/
 	override func viewDidLoad()
@@ -56,7 +56,7 @@ class ViewController: UIViewController, ADBannerViewDelegate
 	
 	
 	/********************************************************************
-	 * METHOD: didReceiveMemoryWarning | PARAMETERS: none | RETURN: void
+	 * FUNC: didReceiveMemoryWarning | PARAMETERS: none | RETURN: void
 	 * PURPOSE: Sent to the view controller when the app receives a memory 
 	 *	warning.
 	 ********************************************************************/
@@ -65,56 +65,65 @@ class ViewController: UIViewController, ADBannerViewDelegate
 		super.didReceiveMemoryWarning()
 
 	}
-
 	
 	
-	/********************************************************************
-	 * METHOD: viewDidAppear | PARAMETERS: Bool | RETURN: void
-	 * PURPOSE: Notifies the view controller that its view was added to a 
-	 *	view hierarchy. If True, the view was added to the window using an 
-	 *	animation.
-	 ********************************************************************/
-	override func viewDidAppear( animated: Bool ) 
-	{
-		
-	}
 	
+	/*********************************************************************************
+	* FUNC: prepareForSegue | PARAMETERS: UIStoryboardSegue, AnyObject | RETURN: void
+	* PURPOSE: Notifies the view controller that a segue is about to be performed.
+	**********************************************************************************/
 	override func prepareForSegue( segue: UIStoryboardSegue, sender: AnyObject? ) 
 	{
 		let destination = segue.destinationViewController as! UIViewController
 		
-		destination.interstitialPresentationPolicy = 
-			ADInterstitialPresentationPolicy.Automatic
+		destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicy.Automatic
 	}
 	
-	func bannerViewWillLoadAd( banner: ADBannerView! ) 
-	{
-
-	}
 	
+	
+	/**********************************************************************
+	 * FUNC: bannerViewDidLoadAd | PARAMETERS: ADBannerView | RETURN: void
+	 * PURPOSE: Called when a new banner advertisement is loaded.
+	 ***********************************************************************/
 	func bannerViewDidLoadAd( banner: ADBannerView! ) 
 	{
 		self.adversistment?.hidden = false
 	}
 	
+	
+	
+	/****************************************************************************
+	 * FUNC: bannerViewActionDidFinish | PARAMETERS: ADBannerView | RETURN: void
+	 * PURPOSE: Called after a banner view finishes executing an action that covered 
+	 *	  your application’s user interface.
+	 *****************************************************************************/
 	func bannerViewActionDidFinish( banner: ADBannerView! ) 
 	{		
 		//optional resume paused game code
 		
 	}
 	
+	
+	
+	/***********************************************************************
+	 * FUNC: bannerView | PARAMETERS: ADBannerView, NSError | RETURN: void
+	 * PURPOSE: Called when a banner view fails to load a new advertisement.
+	 ***********************************************************************/
 	func bannerView( banner: ADBannerView!, didFailToReceiveAdWithError error: NSError! ) 
 	{
 		self.adversistment?.hidden = true
-		
 	}
 	
+	
+	
+	/***********************************************************************************
+	 * FUNC: bannerViewActionShouldBegin | PARAMETERS: ADBannerView, Bool | RETURN: Bool
+	 * PURPOSE: Called before a banner view executes an action.
+	 ************************************************************************************/
 	func bannerViewActionShouldBegin( banner: ADBannerView!, willLeaveApplication willLeave: Bool ) -> Bool 
 	{		
 		//optional pause game code
 		
 		return willLeave
 	}
-
 }
-

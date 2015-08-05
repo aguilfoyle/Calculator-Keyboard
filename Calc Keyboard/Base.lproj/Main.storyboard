@@ -371,7 +371,7 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
 
 Thanks for all of the support and positive feedback! 
 
-New operations are here! We have added operations like 1/x, x² and π. Also, as requested there is now an 'enter a new line' key! The new switch button in the top/left corner allows you to turn on/off the text entering to the screen. If you wish to have it off and you want to enter text after you type it out simply tap where the results are shown.
+New operations have arrived! We have added operations like 1/x, x², %, and π. Also, as requested there is now an 'new line' key! The new switch in the top/left corner allows you to turn on/off the text entering to the screen. If you wish to have it off and you want to enter text after you type it out simply tap where the results are shown.
 
 If you have any comments or other feedback, please feel free to contact us at 
 ThinkThriceTech@gmail.com 
@@ -1002,6 +1002,6 @@ The Calculator Keyboard</string>
         <image name="whatsNew3" width="466" height="255"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mzj-QE-IZd"/>
+        <segue reference="n5i-Ud-59D"/>
     </inferredMetricsTieBreakers>
 </document>

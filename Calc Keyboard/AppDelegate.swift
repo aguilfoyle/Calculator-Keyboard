@@ -9,6 +9,12 @@
 // *** IMPORT(S) ***
 import UIKit
 
+
+
+/*****************************************************************************
+ * CLASS: AppDelegate | ADDITIONAL: UIResponder & UIApplicationDelegate
+ * PURPOSE: This class was provided by Apple
+ *****************************************************************************/
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate 
 {
@@ -19,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
 	
 	/*****************************************************************************
-	 * METHOD: application | PARAMETER(S): UIApplication, AnyObject | RETURN: Bool
+	 * FUNC: application | PARAMETER(S): UIApplication, AnyObject | RETURN: Bool
 	 * PURPOSE: Tells the delegate that the launch process is almost done and the 
 	 *		app is almost ready to run.
 	 *****************************************************************************/
@@ -32,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	
 	/**********************************************************************************
-	 * METHOD: applicationWillResignActive | PARAMETER(S): UIApplication | RETURN: void
+	 * FUNC: applicationWillResignActive | PARAMETER(S): UIApplication | RETURN: void
 	 * PURPOSE: Tells the delegate that the app is about to become inactive.
 	 **********************************************************************************/
 	func applicationWillResignActive( application: UIApplication ) 
@@ -44,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	
 	/**********************************************************************************
-	 * METHOD: applicationDidEnterBackground | PARAMETER(S): UIApplication | RETURN: void
+	 * FUNC: applicationDidEnterBackground | PARAMETER(S): UIApplication | RETURN: void
 	 * PURPOSE: Tells the delegate that the app is now in the background.
 	 **********************************************************************************/
 	func applicationDidEnterBackground( application: UIApplication ) 
@@ -56,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	
 	/**********************************************************************************
-	 * METHOD: applicationWillEnterForeground | PARAMETER(S): UIApplication | RETURN: void
+	 * FUNC: applicationWillEnterForeground | PARAMETER(S): UIApplication | RETURN: void
 	 * PURPOSE: Tells the delegate that the app is about to enter the foreground.
 	 **********************************************************************************/
 	func applicationWillEnterForeground( application: UIApplication ) 
@@ -67,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	
 	/**********************************************************************************
-	* METHOD: applicationDidBecomeActive | PARAMETER(S): UIApplication | RETURN: void
+	* FUNC: applicationDidBecomeActive | PARAMETER(S): UIApplication | RETURN: void
 	* PURPOSE: Tells the delegate that the app has become active.
 	**********************************************************************************/
 	func applicationDidBecomeActive( application: UIApplication ) 
@@ -78,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	
 	/**********************************************************************************
-	* METHOD: applicationWillTerminate | PARAMETER(S): UIApplication | RETURN: void
+	* FUNC: applicationWillTerminate | PARAMETER(S): UIApplication | RETURN: void
 	* PURPOSE: Tells the delegate when the app is about to terminate.
 	**********************************************************************************/
 	func applicationWillTerminate( application: UIApplication ) 
