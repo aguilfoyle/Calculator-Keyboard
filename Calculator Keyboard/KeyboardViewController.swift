@@ -177,6 +177,7 @@ class KeyboardViewController: UIInputViewController
 	var negativeHit    = false
 	var reciprocalHit  = false
 	var postSignChange = false
+	var errorHappened  = false
 	//Integer(s)
 	var counter		  = 0
 	var timerCounter  = 0
@@ -306,7 +307,7 @@ class KeyboardViewController: UIInputViewController
 		
 		//Append number and operation to stacks
 		self.operatorStack.append( newOperator )
-		self.numberStack.append( accumulator )
+		self.numberStack.append( self.accumulator )
 		//Update everything and delete userInput string
 		self.userInput = ""
 		self.updateDisplay()
@@ -367,7 +368,7 @@ class KeyboardViewController: UIInputViewController
 				
 				if self.postSignChange
 				{
-					for( var i = 0; i < self.lengthOfInput + 1; i++ )
+					for( var i = 0; i < self.lengthOfInput; i++ )
 					{
 						( textDocumentProxy as! UIKeyInput ).deleteBackward()
 					}
@@ -393,7 +394,7 @@ class KeyboardViewController: UIInputViewController
 				
 				if self.postSignChange
 				{
-					for( var i = 0; i < self.lengthOfInput + 1; i++ )
+					for( var i = 0; i < self.lengthOfInput; i++ )
 					{
 						( textDocumentProxy as! UIKeyInput ).deleteBackward()
 					}
@@ -420,11 +421,6 @@ class KeyboardViewController: UIInputViewController
 		self.accumulator = Double(( self.userInput as NSString ).doubleValue )
 		
 		self.updateDisplay()
-		
-		if self.postSignChange
-		{
-			( textDocumentProxy as! UIKeyInput ).insertText( " " )
-		}
 	}
 	
 	
@@ -513,10 +509,13 @@ class KeyboardViewController: UIInputViewController
 			if self.reciprocalHit
 			{
 				self.resultsLabel.text = "error"
+				self.errorHappened = true
+				
 			}
 			else
 			{
 				self.resultsLabel.text = "error"
+				self.errorHappened = true
 			}
 		}
 		else
@@ -627,6 +626,7 @@ class KeyboardViewController: UIInputViewController
 		self.lengthOfInput = 0
 		self.accumulator = 0
 		self.counter = 0
+		self.errorHappened = false
 		self.postSignChange = false
 		self.reciprocalHit = false
 		self.negativeHit = false
@@ -644,17 +644,21 @@ class KeyboardViewController: UIInputViewController
 	 *************************************************************************/
 	@IBAction func changeSignPressed( sender: AnyObject ) 
 	{
-		if self.userInput.isEmpty 
+		if !self.errorHappened
 		{
-			self.userInput = self.resultsLabel.text!
-		}
-		
-		if self.postSignChange
-		{
-			self.lengthOfInput = count( self.userInput )
-		}
-		
-		self.handleInput( "-" )
+			if self.userInput.isEmpty 
+			{
+				self.userInput = self.resultsLabel.text!
+			}
+			
+			if self.postSignChange
+			{
+				self.lengthOfInput = count( self.userInput )
+			}
+			
+			self.handleInput( "-" )
+			
+		}		
 	}
 	
 	
@@ -694,20 +698,12 @@ class KeyboardViewController: UIInputViewController
 	 *		number on the button; Limits the user to 12 digits [000,000,000,000]
 	 ***************************************************************************/
 	@IBAction func numberPressed( sender: AnyObject ) 
-	{
-		if self.postSignChange && self.negativeHit
-		{
-			( textDocumentProxy as! UIKeyInput ).deleteBackward()
-		}
-		
-		self.negativeHit = false
+	{		
+		self.negativeHit    = false
+		self.errorHappened  = false
 		self.postSignChange = false
 		
-		if self.counter == 11
-		{
-			
-		}
-		else
+		if self.counter != 11
 		{
 			self.counter++
 			self.handleInput( "\(sender.tag)" )
@@ -755,7 +751,6 @@ class KeyboardViewController: UIInputViewController
 			self.doEquals()
 			self.postSignChange = true
 			self.printTextToScreen( "=\(self.resultsLabel.text!)" )
-			( textDocumentProxy as! UIKeyInput ).insertText( " " )
 			
 		default:
 			return
@@ -772,71 +767,75 @@ class KeyboardViewController: UIInputViewController
 	 ***************************************************************************/
 	@IBAction func otherOperatorsPressed( sender: AnyObject )
 	{
-		switch sender.tag
+		if !errorHappened
 		{
-		case 0: //X!
-			self.printTextToScreen( "²" )
-			self.doMath( "*" )
-			self.handleInput( "\(self.accumulator)" )
-			self.doEquals()
-			self.printTextToScreen( "=\(self.resultsLabel.text!) " )
-			self.lengthOfInput = count( self.userInput )
-			self.postSignChange = true
-			
-		case 1: //1/x
-			//If: user taps nothing thus it's 1/0 which is an error
-			if self.userInput == ""
+			switch sender.tag
 			{
-				//If insertText option is on then insert the operation and result
-				if self.textInput
-				{
-					( textDocumentProxy as! UIKeyInput ).insertText( "1/0=error" )
-				}
-				
-				self.resultsLabel.text = "error"
-			}
-			else //Else: User taps 1/? with an actual number
-			{
-				for( var i = 0; i < self.counter; i++ )
-				{
-					( textDocumentProxy as! UIKeyInput ).deleteBackward()
-				}
-				self.printTextToScreen( "1/\(self.userInput)" )
-				self.doMath( "/?" )
-				self.handleInput("2")
+			case 0: //X!
+				self.printTextToScreen( "²" )
+				self.doMath( "*" )
+				self.handleInput( "\(self.accumulator)" )
 				self.doEquals()
-				self.printTextToScreen( "=\(self.resultsLabel.text!) " )
+				self.printTextToScreen( "=\(self.resultsLabel.text!)" )
 				self.lengthOfInput = count( self.userInput )
 				self.postSignChange = true
+				
+			case 1: //1/x
+				//If: user taps nothing thus it's 1/0 which is an error
+				if self.userInput == ""
+				{
+					//If insertText option is on then insert the operation and result
+					if self.textInput
+					{
+						( textDocumentProxy as! UIKeyInput ).insertText( "1/0=error" )
+					}
+					
+					self.resultsLabel.text = "error"
+					self.errorHappened = true
+				}
+				else //Else: User taps 1/? with an actual number
+				{
+					for( var i = 0; i < self.counter; i++ )
+					{
+						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+					}
+					self.printTextToScreen( "1/\(self.userInput)" )
+					self.doMath( "/?" )
+					self.handleInput("2")
+					self.doEquals()
+					self.printTextToScreen( "=\(self.resultsLabel.text!)" )
+					self.lengthOfInput = count( self.userInput )
+					self.postSignChange = true
+				}
+				
+			case 2: //π
+				self.printTextToScreen( "\(self.pi)" )
+				
+				self.handleInput( "\(self.pi)" )
+				self.lengthOfInput = count( self.userInput )
+				self.postSignChange = true
+				
+				//		case 3: //10x
+				//			self.resultsLabel.text = "sqr(x)"
+				//			
+				//		case 4: //x^2
+				//			self.resultsLabel.text = "x^2"
+				//			
+				//		case 5: //x^3
+				//			self.resultsLabel.text = "x^3"
+				
+			case 6: //%
+				self.printTextToScreen( "%100" )
+				self.doMath( "%" )
+				self.handleInput("100")
+				self.doEquals()
+				self.printTextToScreen( "=\(self.resultsLabel.text!)" )
+				self.lengthOfInput = count( self.userInput )
+				self.postSignChange = true
+				
+			default:
+				return
 			}
-			
-		case 2: //π
-			self.printTextToScreen( "\(self.pi)" )
-			
-			self.handleInput( "\(self.pi)" )
-			self.lengthOfInput = count( self.userInput )
-			self.postSignChange = true
-			
-			//		case 3: //10x
-			//			self.resultsLabel.text = "sqr(x)"
-			//			
-			//		case 4: //x^2
-			//			self.resultsLabel.text = "x^2"
-			//			
-			//		case 5: //x^3
-			//			self.resultsLabel.text = "x^3"
-			
-		case 6: //%
-			self.printTextToScreen( "%100" )
-			self.doMath( "%" )
-			self.handleInput("100")
-			self.doEquals()
-			self.printTextToScreen( "=\(self.resultsLabel.text!) " )
-			self.lengthOfInput = count( self.userInput )
-			self.postSignChange = true
-			
-		default:
-			return
 		}
 	}
 	
@@ -852,6 +851,13 @@ class KeyboardViewController: UIInputViewController
 	{
 		( textDocumentProxy as! UIKeyInput ).insertText( "\n" )
 	}	
+	
+	
+	
+	@IBAction func spaceBarPressed( sender: AnyObject ) 
+	{
+		( textDocumentProxy as! UIKeyInput ).insertText( " " )
+	}
 	
 	
 	
