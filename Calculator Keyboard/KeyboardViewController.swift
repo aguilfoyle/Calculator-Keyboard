@@ -183,7 +183,7 @@ class KeyboardViewController: UIInputViewController
 	var timerCounter  = 0
 	var lengthOfInput = 0
 	//Double(s)
-	var pi		    : Double = 3.14159265358979
+	var pi		    : Double = 3.1415926535897
 	var accumulator : Double = 0.0
 	//Array(s) / Stack(s)
 	var numberStack		   : [Double] = []
@@ -296,10 +296,10 @@ class KeyboardViewController: UIInputViewController
 		{
 			var operatorsInStack = self.operatorStack.last
 			
-			if !((operatorsInStack == "+" || operatorsInStack == "-") && (newOperator == "*" || newOperator == "/" || newOperator == "/?" || newOperator == "%")) 
+			if !(( operatorsInStack == "+" || operatorsInStack == "-") && (newOperator == "*" || newOperator == "/" || newOperator == "/?" || newOperator == "%" )) 
 			{
 				var holdingValues = theOperators[operatorStack.removeLast()]
-				self.accumulator = holdingValues!(numberStack.removeLast(), accumulator)
+				self.accumulator = holdingValues!( numberStack.removeLast(), accumulator )
 				
 				self.doEquals()
 			}
@@ -456,7 +456,7 @@ class KeyboardViewController: UIInputViewController
 	{
 		if self.timerCounter == 2
 		{
-			self.resultsLabel.fadeOut(completion: 
+			self.resultsLabel.fadeOut( completion: 
 				{
 					(finished: Bool) -> Void in
 					self.updateDisplay()
@@ -795,10 +795,15 @@ class KeyboardViewController: UIInputViewController
 				}
 				else //Else: User taps 1/? with an actual number
 				{
-					for( var i = 0; i < self.counter; i++ )
+					//If textInput is off, then delete the number typed and replace with 1/?
+					if self.textInput
 					{
-						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						for( var i = 0; i < self.counter; i++ )
+						{
+							( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						}
 					}
+					
 					self.printTextToScreen( "1/\(self.userInput)" )
 					self.doMath( "/?" )
 					self.handleInput("2")
