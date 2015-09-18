@@ -26,7 +26,7 @@ let theOperators: [String: holdsValues] = [ "+" : addition, "-" : subtract, "*" 
  ***********************************************************************/
 func addition( a: Double, b: Double ) -> Double 
 {
-	var result = a + b
+	let result = a + b
 	
 	return result
 }
@@ -38,7 +38,7 @@ func addition( a: Double, b: Double ) -> Double
  ***********************************************************************/
 func subtract(a: Double, b: Double) -> Double 
 {
-	var result = a - b
+	let result = a - b
 	
 	return result
 }
@@ -50,7 +50,7 @@ func subtract(a: Double, b: Double) -> Double
  ***********************************************************************/
 func multiply(a: Double, b: Double) -> Double 
 {
-	var result = a * b
+	let result = a * b
 
 	return result
 }
@@ -64,13 +64,13 @@ func divide( a: Double, b: Double ) -> Double
 {	
 	if b == 0 || b == 0.0
 	{
-		var result = 0.123332101
+		let result = 0.123332101
 		
 		return result
 	}
 	else
 	{
-		var result = a / b
+		let result = a / b
 		
 		return result
 	}
@@ -85,13 +85,13 @@ func reciprocal( a: Double, b: Double ) -> Double
 {
 	if a == 0 || a == 0.0
 	{
-		var result = 0.123332101
+		let result = 0.123332101
 		
 		return result
 	}
 	else
 	{
-		var result = 1 / a
+		let result = 1 / a
 		
 		return result
 	}
@@ -104,7 +104,7 @@ func reciprocal( a: Double, b: Double ) -> Double
  ***********************************************************************/
 func percentage( a: Double, b: Double ) -> Double
 {
-	var result = a / 100 
+	let result = a / 100 
 	
 	return result
 }
@@ -275,7 +275,7 @@ class KeyboardViewController: UIInputViewController
 	 * PURPOSE: Tells the input delegate when text is about to change 
 	 *		in the document. 
 	 *******************************************************************/
-	override func textWillChange( textInput: UITextInput ) 
+	override func textWillChange( textInput: UITextInput? ) 
 	{
 		// The app is about to change the document's contents. Perform any preparation here.
 	}
@@ -294,11 +294,11 @@ class KeyboardViewController: UIInputViewController
 	{
 		if self.userInput != "" && !self.numberStack.isEmpty 
 		{
-			var operatorsInStack = self.operatorStack.last
+			let operatorsInStack = self.operatorStack.last
 			
 			if !(( operatorsInStack == "+" || operatorsInStack == "-") && (newOperator == "*" || newOperator == "/" || newOperator == "/?" || newOperator == "%" )) 
 			{
-				var holdingValues = theOperators[operatorStack.removeLast()]
+				let holdingValues = theOperators[operatorStack.removeLast()]
 				self.accumulator = holdingValues!( numberStack.removeLast(), accumulator )
 				
 				self.doEquals()
@@ -332,7 +332,7 @@ class KeyboardViewController: UIInputViewController
 		
 		if !self.numberStack.isEmpty 
 		{
-			var holdingValues = theOperators[self.operatorStack.removeLast()]
+			let holdingValues = theOperators[self.operatorStack.removeLast()]
 			
 			self.accumulator = holdingValues!( self.numberStack.removeLast(), self.accumulator )			
 			
@@ -370,7 +370,7 @@ class KeyboardViewController: UIInputViewController
 				{
 					for( var i = 0; i < self.lengthOfInput; i++ )
 					{
-						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						( textDocumentProxy as UIKeyInput ).deleteBackward()
 					}
 					
 					self.userInput = self.userInput.substringFromIndex( self.userInput.startIndex.successor())
@@ -379,7 +379,7 @@ class KeyboardViewController: UIInputViewController
 				{
 					for( var i = 0; i < self.counter + 1; i++ )
 					{
-						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						( textDocumentProxy as UIKeyInput ).deleteBackward()
 					}
 					
 					self.userInput = self.userInput.substringFromIndex( self.userInput.startIndex.successor())
@@ -396,7 +396,7 @@ class KeyboardViewController: UIInputViewController
 				{
 					for( var i = 0; i < self.lengthOfInput; i++ )
 					{
-						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						( textDocumentProxy as UIKeyInput ).deleteBackward()
 					}
 					
 					self.userInput = input + self.userInput
@@ -405,7 +405,7 @@ class KeyboardViewController: UIInputViewController
 				{
 					for( var i = 0; i < self.counter; i++ )
 					{
-						( textDocumentProxy as! UIKeyInput ).deleteBackward()
+						( textDocumentProxy as UIKeyInput ).deleteBackward()
 					}
 					
 					self.userInput = input + self.userInput
@@ -434,7 +434,7 @@ class KeyboardViewController: UIInputViewController
 	// Looks for a single character in a string.
 	func hasIndex( stringToSearch text: String, characterToFind char: Character ) -> Bool 
 	{
-		for theChar in text 
+		for theChar in text.characters 
 		{
 			if theChar == char 
 			{
@@ -489,7 +489,7 @@ class KeyboardViewController: UIInputViewController
 				self.printToScreen = items
 			}
 			
-			( textDocumentProxy as! UIKeyInput ).insertText( self.printToScreen )
+			( textDocumentProxy as UIKeyInput ).insertText( self.printToScreen )
 		}
 	}
 	
@@ -521,7 +521,7 @@ class KeyboardViewController: UIInputViewController
 		else
 		{
 			// If the value is an integer, don't show a decimal point
-			var iAcc = Int(self.accumulator)
+			let iAcc = Int(self.accumulator)
 			
 			if accumulator - Double(iAcc) == 0 
 			{
@@ -577,7 +577,7 @@ class KeyboardViewController: UIInputViewController
 	 *************************************************************************/
 	@IBAction func backSpacePressed( button: UIButton )
 	{
-		( textDocumentProxy as! UIKeyInput ).deleteBackward()
+		( textDocumentProxy as UIKeyInput ).deleteBackward()
 	}
 	
 	
@@ -653,7 +653,7 @@ class KeyboardViewController: UIInputViewController
 			
 			if self.postSignChange
 			{
-				self.lengthOfInput = count( self.userInput )
+				self.lengthOfInput = self.userInput.characters.count
 			}
 			
 			self.handleInput( "-" )
@@ -673,7 +673,7 @@ class KeyboardViewController: UIInputViewController
 	{
 		if !self.textInput
 		{
-			( textDocumentProxy as! UIKeyInput ).insertText( self.resultsLabel.text! )
+			( textDocumentProxy as UIKeyInput ).insertText( self.resultsLabel.text! )
 		}
 	}
 	
@@ -777,7 +777,7 @@ class KeyboardViewController: UIInputViewController
 				self.handleInput( "\(self.accumulator)" )
 				self.doEquals()
 				self.printTextToScreen( "=\(self.resultsLabel.text!)" )
-				self.lengthOfInput = count( self.userInput )
+				self.lengthOfInput = self.userInput.characters.count
 				self.postSignChange = true
 				
 			case 1: //1/x
@@ -787,7 +787,7 @@ class KeyboardViewController: UIInputViewController
 					//If insertText option is on then insert the operation and result
 					if self.textInput
 					{
-						( textDocumentProxy as! UIKeyInput ).insertText( "1/0=error" )
+						( textDocumentProxy as UIKeyInput ).insertText( "1/0=error" )
 					}
 					
 					self.resultsLabel.text = "error"
@@ -800,7 +800,7 @@ class KeyboardViewController: UIInputViewController
 					{
 						for( var i = 0; i < self.counter; i++ )
 						{
-							( textDocumentProxy as! UIKeyInput ).deleteBackward()
+							( textDocumentProxy as UIKeyInput ).deleteBackward()
 						}
 					}
 					
@@ -809,7 +809,7 @@ class KeyboardViewController: UIInputViewController
 					self.handleInput("2")
 					self.doEquals()
 					self.printTextToScreen( "=\(self.resultsLabel.text!)" )
-					self.lengthOfInput = count( self.userInput )
+					self.lengthOfInput = self.userInput.characters.count
 					self.postSignChange = true
 				}
 				
@@ -817,7 +817,7 @@ class KeyboardViewController: UIInputViewController
 				self.printTextToScreen( "\(self.pi)" )
 				
 				self.handleInput( "\(self.pi)" )
-				self.lengthOfInput = count( self.userInput )
+				self.lengthOfInput = self.userInput.characters.count
 				self.postSignChange = true
 				
 				//		case 3: //10x
@@ -835,7 +835,7 @@ class KeyboardViewController: UIInputViewController
 				self.handleInput("100")
 				self.doEquals()
 				self.printTextToScreen( "=\(self.resultsLabel.text!)" )
-				self.lengthOfInput = count( self.userInput )
+				self.lengthOfInput = self.userInput.characters.count
 				self.postSignChange = true
 				
 			default:
@@ -854,14 +854,14 @@ class KeyboardViewController: UIInputViewController
 	 ***************************************************************************/
 	@IBAction func returnPressed( button: UIButton ) 
 	{
-		( textDocumentProxy as! UIKeyInput ).insertText( "\n" )
+		( textDocumentProxy as UIKeyInput ).insertText( "\n" )
 	}	
 	
 	
 	
 	@IBAction func spaceBarPressed( sender: AnyObject ) 
 	{
-		( textDocumentProxy as! UIKeyInput ).insertText( " " )
+		( textDocumentProxy as UIKeyInput ).insertText( " " )
 	}
 	
 	

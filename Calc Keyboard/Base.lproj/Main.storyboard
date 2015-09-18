@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ABh-Zg-4Kg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ABh-Zg-4Kg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,6 +10,7 @@
         <!--Main-->
         <scene sceneID="VnW-eo-jtz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdT-PN-olP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Main" id="ABh-Zg-4Kg" customClass="ViewController" customModule="Calc_Keyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q9c-ZZ-sPc"/>
@@ -20,9 +22,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background1" translatesAutoresizingMaskIntoConstraints="NO" id="KNK-WN-7vY">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noC-Oy-jkD">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <size key="titleShadowOffset" width="0.0" height="4"/>
                                 <state key="normal" title="Extension Instructions">
@@ -35,6 +39,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZn-a9-yPt">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <size key="titleShadowOffset" width="0.0" height="4"/>
                                 <state key="normal" title="News &amp; Updates">
@@ -47,6 +52,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck6-42-5it">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <size key="titleShadowOffset" width="0.0" height="4"/>
                                 <state key="normal" title="About Us">
@@ -57,14 +63,9 @@
                                     <segue destination="lwp-7h-bIM" kind="show" id="RiJ-gV-AA8"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="7LL-Ht-fxF">
-                                <rect key="frame" x="0.0" y="-50" width="320" height="50"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ABh-Zg-4Kg" id="ZZR-Qc-dhN"/>
-                                </connections>
-                            </adBannerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Calculator Keyboard Extension" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q72-py-uHb">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="akp-Bm-Xjm"/>
                                 </constraints>
@@ -85,6 +86,7 @@
                                 </variation>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="height" secondItem="Ck6-42-5it" secondAttribute="height" id="0Oi-4H-Ku3"/>
@@ -96,9 +98,7 @@
                             <constraint firstAttribute="trailing" secondItem="KNK-WN-7vY" secondAttribute="trailing" id="CLB-kF-te1"/>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="top" secondItem="noC-Oy-jkD" secondAttribute="bottom" constant="8" symbolic="YES" id="LXB-xQ-bo7"/>
                             <constraint firstItem="KNK-WN-7vY" firstAttribute="top" secondItem="d8s-Yw-hZd" secondAttribute="top" id="OvT-aP-qgd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7LL-Ht-fxF" secondAttribute="trailing" constant="24" id="Qs7-ZT-uwp"/>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="width" secondItem="Q72-py-uHb" secondAttribute="width" id="TGm-O4-Ryu"/>
-                            <constraint firstItem="7LL-Ht-fxF" firstAttribute="leading" secondItem="d8s-Yw-hZd" secondAttribute="leadingMargin" constant="24" id="Xme-KC-5XB"/>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="height" secondItem="noC-Oy-jkD" secondAttribute="height" id="YTb-nc-8Zq"/>
                             <constraint firstItem="KNK-WN-7vY" firstAttribute="bottom" secondItem="uVc-Eo-Fdw" secondAttribute="top" id="ZXl-30-luM">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -111,7 +111,6 @@
                             <constraint firstItem="noC-Oy-jkD" firstAttribute="top" secondItem="Q72-py-uHb" secondAttribute="bottom" constant="8" symbolic="YES" id="jC6-iA-U9H">
                                 <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                             </constraint>
-                            <constraint firstItem="uVc-Eo-Fdw" firstAttribute="top" secondItem="7LL-Ht-fxF" secondAttribute="bottom" id="l9O-Ox-6Ky"/>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="width" secondItem="Ck6-42-5it" secondAttribute="width" id="rqD-FP-Rq8"/>
                             <constraint firstItem="bZn-a9-yPt" firstAttribute="height" secondItem="Q72-py-uHb" secondAttribute="height" id="wcZ-DP-UBp"/>
                             <constraint firstItem="Ck6-42-5it" firstAttribute="top" secondItem="bZn-a9-yPt" secondAttribute="bottom" constant="8" symbolic="YES" id="xvU-T4-T31"/>
@@ -122,17 +121,18 @@
                                 <exclude reference="noC-Oy-jkD"/>
                                 <exclude reference="bZn-a9-yPt"/>
                                 <exclude reference="Ck6-42-5it"/>
-                                <exclude reference="7LL-Ht-fxF"/>
                                 <exclude reference="Q72-py-uHb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Qs7-ZT-uwp"/>
-                                <exclude reference="Xme-KC-5XB"/>
+                                <exclude reference="CLB-kF-te1"/>
+                                <exclude reference="OvT-aP-qgd"/>
+                                <exclude reference="ZXl-30-luM"/>
+                                <exclude reference="aaG-qR-taq"/>
                                 <exclude reference="421-7k-hay"/>
                                 <exclude reference="Zgs-DE-YvM"/>
-                                <exclude reference="l9O-Ox-6Ky"/>
-                                <exclude reference="Zp9-lP-JDu"/>
-                                <exclude reference="xvU-T4-T31"/>
+                                <exclude reference="0qX-q6-Xjt"/>
+                                <exclude reference="eAH-GP-WS6"/>
+                                <exclude reference="jC6-iA-U9H"/>
                                 <exclude reference="0Oi-4H-Ku3"/>
                                 <exclude reference="B2b-Be-wxd"/>
                                 <exclude reference="LXB-xQ-bo7"/>
@@ -141,13 +141,8 @@
                                 <exclude reference="f58-yx-AFt"/>
                                 <exclude reference="rqD-FP-Rq8"/>
                                 <exclude reference="wcZ-DP-UBp"/>
-                                <exclude reference="0qX-q6-Xjt"/>
-                                <exclude reference="eAH-GP-WS6"/>
-                                <exclude reference="jC6-iA-U9H"/>
-                                <exclude reference="CLB-kF-te1"/>
-                                <exclude reference="OvT-aP-qgd"/>
-                                <exclude reference="ZXl-30-luM"/>
-                                <exclude reference="aaG-qR-taq"/>
+                                <exclude reference="Zp9-lP-JDu"/>
+                                <exclude reference="xvU-T4-T31"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -156,17 +151,18 @@
                                 <include reference="noC-Oy-jkD"/>
                                 <include reference="bZn-a9-yPt"/>
                                 <include reference="Ck6-42-5it"/>
-                                <include reference="7LL-Ht-fxF"/>
                                 <include reference="Q72-py-uHb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Qs7-ZT-uwp"/>
-                                <include reference="Xme-KC-5XB"/>
+                                <include reference="CLB-kF-te1"/>
+                                <include reference="OvT-aP-qgd"/>
+                                <include reference="ZXl-30-luM"/>
+                                <include reference="aaG-qR-taq"/>
                                 <include reference="421-7k-hay"/>
                                 <include reference="Zgs-DE-YvM"/>
-                                <include reference="l9O-Ox-6Ky"/>
-                                <include reference="Zp9-lP-JDu"/>
-                                <include reference="xvU-T4-T31"/>
+                                <include reference="0qX-q6-Xjt"/>
+                                <include reference="eAH-GP-WS6"/>
+                                <include reference="jC6-iA-U9H"/>
                                 <include reference="0Oi-4H-Ku3"/>
                                 <include reference="B2b-Be-wxd"/>
                                 <include reference="LXB-xQ-bo7"/>
@@ -175,13 +171,8 @@
                                 <include reference="f58-yx-AFt"/>
                                 <include reference="rqD-FP-Rq8"/>
                                 <include reference="wcZ-DP-UBp"/>
-                                <include reference="0qX-q6-Xjt"/>
-                                <include reference="eAH-GP-WS6"/>
-                                <include reference="jC6-iA-U9H"/>
-                                <include reference="CLB-kF-te1"/>
-                                <include reference="OvT-aP-qgd"/>
-                                <include reference="ZXl-30-luM"/>
-                                <include reference="aaG-qR-taq"/>
+                                <include reference="Zp9-lP-JDu"/>
+                                <include reference="xvU-T4-T31"/>
                             </mask>
                         </variation>
                     </view>
@@ -189,12 +180,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="aboutUsButton" destination="Ck6-42-5it" id="azl-8p-7o4"/>
-                        <outlet property="adversistment" destination="7LL-Ht-fxF" id="q4F-LC-9T0"/>
                         <outlet property="instructionsButton" destination="noC-Oy-jkD" id="4Ta-uy-URd"/>
                         <outlet property="newsUpdatesButton" destination="bZn-a9-yPt" id="Oky-Ba-Ech"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pdT-PN-olP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-766.5" y="1516.5"/>
         </scene>
@@ -212,9 +201,11 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroun3" translatesAutoresizingMaskIntoConstraints="NO" id="FhA-5V-Qfe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <navigationBar alpha="0.69999999999999973" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKd-tu-T95">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0tk-5r-tiM"/>
@@ -243,6 +234,7 @@
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64a-g3-tXZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                                 <string key="text">Hiya! 
 I started Think Thrice Tech in early 2015. I'm a computer science student that's trying to find is niché. I don't do iOS programming for any reason except because I absolutely LOVE IT! 
 If I can build an app for you or help you in an way, I'd love the opportunity! 
@@ -254,6 +246,7 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="64a-g3-tXZ" firstAttribute="top" secondItem="FhA-5V-Qfe" secondAttribute="top" id="1wp-FM-Cmk"/>
@@ -318,7 +311,7 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yx-ED-R7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="1510.5"/>
+            <point key="canvasLocation" x="79" y="1516"/>
         </scene>
         <!--News_Updates-->
         <scene sceneID="2cV-Fb-zLU">
@@ -334,9 +327,11 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroun3" translatesAutoresizingMaskIntoConstraints="NO" id="EWw-WD-KT5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <navigationBar alpha="0.49999999999999961" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDi-vn-aBC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JXx-Ps-4mG"/>
                                 </constraints>
@@ -367,7 +362,8 @@ If I can build an app for you or help you in an way, I'd love the opportunity!
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jdD-ki-3AJ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <mutableString key="text">Version 2.0 is here! 
+                                        <animations/>
+                                        <string key="text">Version 2.0 is here! 
 
 Thanks for all of the support and positive feedback! 
 
@@ -376,7 +372,7 @@ New operations have arrived! We have added operations like 1/x, x², %, and π. 
 If you have any comments or other feedback, please feel free to contact us at 
 ThinkThriceTech@gmail.com 
 or 
-www.facebook.com/CalculatorKeyboardAppThink</mutableString>
+www.facebook.com/CalculatorKeyboardAppThink</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -384,14 +380,18 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsNew1" translatesAutoresizingMaskIntoConstraints="NO" id="eFc-VV-6sM">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsNew3" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-p1-yUY">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsNew2" translatesAutoresizingMaskIntoConstraints="NO" id="Eyq-Jk-g8p">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
                                     </imageView>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstItem="jdD-ki-3AJ" firstAttribute="top" secondItem="snC-aR-4AN" secondAttribute="top" constant="4" id="8eD-wz-DlK"/>
                                     <constraint firstItem="Eyq-Jk-g8p" firstAttribute="top" secondItem="DlD-p1-yUY" secondAttribute="top" id="8kO-wU-JwP"/>
@@ -475,8 +475,10 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="mPw-kX-Thb">
                                 <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                <animations/>
                             </pageControl>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JDi-vn-aBC" firstAttribute="leading" secondItem="EWw-WD-KT5" secondAttribute="leading" id="4dC-9E-aik"/>
@@ -557,7 +559,7 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gR-8P-AEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="1855.5"/>
+            <point key="canvasLocation" x="-247" y="2464"/>
         </scene>
         <!--Instructions-->
         <scene sceneID="ZX4-yT-3qA">
@@ -573,9 +575,11 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="THg-Wh-WKe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
                             </imageView>
                             <navigationBar alpha="0.59999999999999964" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-Tv-Myu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="r7P-vL-XL6"/>
                                 </constraints>
@@ -606,6 +610,7 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-n5-bby">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="qug-PX-651"/>
                                         </constraints>
@@ -624,70 +629,82 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2a-ZU-gzX">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-Gv-9Ho">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsK-Na-W7f">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mop-zV-pkF">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJk-St-PeV">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Click 'General'" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sDt-mT-Wb2">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go into your iPhone settings" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Isj-tn-Bf2">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Touch 'Keyboard' Option" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VaD-W3-TWa">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch 'Keyboard'" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="an2-TW-cu9">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch 'Add New Keyboard'" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rio-5C-1w2">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then Click 'Calc Keyboard'" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tQe-cB-Ddz">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="1" blue="0.91677093356961015" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstItem="tQe-cB-Ddz" firstAttribute="leading" secondItem="rio-5C-1w2" secondAttribute="leading" id="1H6-Gk-3fh"/>
                                     <constraint firstItem="VaD-W3-TWa" firstAttribute="height" secondItem="Isj-tn-Bf2" secondAttribute="height" id="1Ln-sp-np0"/>
@@ -873,6 +890,7 @@ www.facebook.com/CalculatorKeyboardAppThink</mutableString>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ylo-fU-URZ">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <animations/>
                                         <string key="text">Instructions For Installing 
 The Calculator Keyboard</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -880,6 +898,7 @@ The Calculator Keyboard</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ylo-fU-URZ" secondAttribute="bottom" id="MGi-YI-GIS"/>
                                     <constraint firstAttribute="trailing" secondItem="ylo-fU-URZ" secondAttribute="trailing" id="PMM-Cr-Jsi"/>
@@ -910,6 +929,7 @@ The Calculator Keyboard</string>
                                 </variation>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="THg-Wh-WKe" firstAttribute="bottom" secondItem="ekL-Uu-wty" secondAttribute="top" id="83S-53-xyt"/>
@@ -990,7 +1010,7 @@ The Calculator Keyboard</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22u-u7-4wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="1117.5"/>
+            <point key="canvasLocation" x="-247" y="569"/>
         </scene>
     </scenes>
     <resources>
@@ -1002,6 +1022,6 @@ The Calculator Keyboard</string>
         <image name="whatsNew3" width="466" height="255"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5i-Ud-59D"/>
+        <segue reference="mzj-QE-IZd"/>
     </inferredMetricsTieBreakers>
 </document>
